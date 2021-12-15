@@ -202,6 +202,7 @@ industry.add_spritelayout(
 # very large layouts for this industry type
 # layout 1 is smallest (6x4), to give a chance of locating on adverse maps
 # other layouts are larger
+"""
 industry.add_industry_layout(
     id="blast_furnace_industry_layout_1",
     layout=[
@@ -251,6 +252,7 @@ industry.add_industry_layout(
         (3, 5, "blast_furnace_tile_1", "blast_furnace_spritelayout_empty"),
     ],
 )
+"""
 industry.add_industry_layout(
     id="blast_furnace_industry_layout_2",
     layout=[
