@@ -41,7 +41,8 @@ industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = [
 ]  # FOOD was tried, but results in more complex cargo flow diagram
 """
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
-    ("PORE", 16),
+    ("SALT", 16),
+    ("ZORE", 16),
 ]
 
 # in Steeltown, there is a deliberate feedback loop with ZINC -> PIPE -> wharf, same for SOAP

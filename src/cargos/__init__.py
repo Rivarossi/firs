@@ -1,6 +1,10 @@
 registered_cargos = []
 
 # keep these alphabetised for ease of maintaining
+from cargos import acetic_acid
+
+acetic_acid.cargo.register()
+
 from cargos import acid
 
 acid.cargo.register()
@@ -194,10 +198,9 @@ from cargos import grain
 
 grain.cargo.register()
 
-""" BLTC
 from cargos import hydrochloric_acid
+
 hydrochloric_acid.cargo.register()
-"""
 
 from cargos import iron_ore
 
@@ -244,19 +247,21 @@ from cargos import metal
 metal.cargo.register()
 """
 
-""" BLTC
 from cargos import methanol
+
 methanol.cargo.register()
-"""
 
 from cargos import milk
 
 milk.cargo.register()
 
-""" BLTC
+from cargos import molasses
+
+molasses.cargo.register()
+
 from cargos import naphtha
+
 naphtha.cargo.register()
-"""
 
 """
 # unused currently
@@ -309,10 +314,9 @@ from cargos import phosphate
 
 phosphate.cargo.register()
 
-""" BLTC
 from cargos import phosphoric_acid
+
 phosphoric_acid.cargo.register()
-"""
 
 from cargos import pig_iron
 
@@ -475,6 +479,13 @@ from cargos import yarn
 yarn.cargo.register()
 """
 
+from cargos import yeast
+
+yeast.cargo.register()
+
 from cargos import zinc
 
 zinc.cargo.register()
+from cargos import zinc_ore
+
+zinc_ore.cargo.register()

@@ -11,6 +11,7 @@ industry = IndustrySecondary(
     # it's rare to force co-location of secondaries, but this one is near port by design
     # !! this will fail if port is not available in economy
     # wharf was added to avoid pathological case in Arctic Basic where checking for only port would often fail to yield a location (for reasons I didn't fully understand eh)
+    # ?? might have been due to industry ID ordering issue, but really not sure about that
     location_checks=dict(
         near_at_least_one_of_these_keystone_industries=[["port", "wharf"], 96],
         same_type_distance=128,
@@ -47,6 +48,15 @@ industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios 
 industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('FMSP', 4), ('BOOM', 4)]
 """
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
+    ("SALT", 2),
+    ("NAPH", 2),
+    ("NH3_", 2),
+]
+industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
+    ("LYE_", 4),
+    ("PLAS", 4)
+]
 
 industry.add_tile(
     id="chemical_plant_tile_1",

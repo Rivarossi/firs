@@ -45,6 +45,7 @@ STR_INFORMATIVE_EXTRA_TEXT_PLAZA_MOOD_OPTIMISTIC                                
 STR_INFORMATIVE_EXTRA_TEXT_PLAZA_MOOD_GLOOMY                                    :Gloomy
 STR_INFORMATIVE_EXTRA_TEXT_PLAZA_MOOD_NEUTRAL                                   :Neutral
 
+STR_CARGO_NAME_ACETIC_ACID                                                      :Acetic Acid
 STR_CARGO_NAME_ACID                                                             :Acid
 STR_CARGO_NAME_ALCOHOL                                                          :Alcohol
 STR_CARGO_NAME_ALLOY_STEEL                                                      :Alloy Steel
@@ -93,11 +94,12 @@ STR_CARGO_NAME_LOGS                                                             
 STR_CARGO_NAME_LUMBER                                                           :Timber
 # cargo uses Sodium Hydroxide as string as it's interchangeable with Lye, but lye is convenient for filename / cargo label
 STR_CARGO_NAME_LYE                                                              :Sodium Hydroxide
+STR_CARGO_NAME_MANGANESE                                                        :Manganese
 STR_CARGO_NAME_METAL                                                            :Metal
 STR_CARGO_NAME_METHANE                                                          :Methane
 STR_CARGO_NAME_METHANOL                                                         :Methanol
 STR_CARGO_NAME_MILK                                                             :Milk
-STR_CARGO_NAME_MANGANESE                                                        :Manganese
+STR_CARGO_NAME_MOLASSES                                                         :Molasses
 STR_CARGO_NAME_NAPHTHA                                                          :Naphtha
 STR_CARGO_NAME_NICKEL                                                           :Nickel
 STR_CARGO_NAME_NITRATES                                                         :Nitrates
@@ -145,8 +147,11 @@ STR_CARGO_NAME_VEHICLE_PARTS                                                    
 STR_CARGO_NAME_VEHICLES                                                         :Vehicles
 STR_CARGO_NAME_WOOL                                                             :Wool
 STR_CARGO_NAME_YARN                                                             :Yarn
+STR_CARGO_NAME_YEAST                                                            :Yeast
 STR_CARGO_NAME_ZINC                                                             :Zinc
+STR_CARGO_NAME_ZINC_ORE                                                         :Zinc Ore
 
+STR_CARGO_UNIT_ACETIC_ACID                                                      :{VOLUME} of acetic acid
 STR_CARGO_UNIT_ACID                                                             :{VOLUME} of acid
 STR_CARGO_UNIT_ALCOHOL                                                          :{VOLUME} of alcohol
 STR_CARGO_UNIT_ALLOY_STEEL                                                      :{WEIGHT} of alloy steel
@@ -200,6 +205,7 @@ STR_CARGO_UNIT_METAL                                                            
 STR_CARGO_UNIT_METHANE                                                          :{VOLUME} of methane
 STR_CARGO_UNIT_METHANOL                                                         :{VOLUME} of methanol
 STR_CARGO_UNIT_MILK                                                             :{VOLUME} of milk
+STR_CARGO_UNIT_MOLASSES                                                         :{VOLUME} of molasses
 STR_CARGO_UNIT_NAPHTHA                                                          :{VOLUME} of naphtha
 STR_CARGO_UNIT_NICKEL                                                           :{WEIGHT} of nickel
 STR_CARGO_UNIT_NITRATES                                                         :{WEIGHT} of nitrates
@@ -247,9 +253,13 @@ STR_CARGO_UNIT_VEHICLE_PARTS                                                    
 STR_CARGO_UNIT_VEHICLES                                                         :{WEIGHT} of vehicles
 STR_CARGO_UNIT_WOOL                                                             :{SIGNED_WORD} bale{P 0 "" s} of wool
 STR_CARGO_UNIT_YARN                                                             :{SIGNED_WORD} bale{P 0 "" s} of yarn
+STR_CARGO_UNIT_YEAST                                                            :{WEIGHT} of yeast
 STR_CARGO_UNIT_ZINC                                                             :{WEIGHT} of zinc
+STR_CARGO_UNIT_ZINC_ORE                                                         :{WEIGHT} of zinc ore
 
 # it seems that using 2 chars for these is a convention not a limit, I tested 4 chars and OpenTTD renders it fine - May 2020
+STR_CID_ACETIC_ACID                                                             :{TINYFONT}AC
+# acid just repeats AC, never used at same time as acetic acid
 STR_CID_ACID                                                                    :{TINYFONT}AC
 STR_CID_ALCOHOL                                                                 :{TINYFONT}AL
 STR_CID_ALLOY_STEEL                                                             :{TINYFONT}AS
@@ -301,6 +311,7 @@ STR_CID_MANGANESE                                                               
 STR_CID_METAL                                                                   :{TINYFONT}MT
 STR_CID_METHANE                                                                 :{TINYFONT}MA
 STR_CID_METHANOL                                                                :{TINYFONT}ME
+STR_CID_MOLASSES                                                                :{TINYFONT}MO
 STR_CID_MILK                                                                    :{TINYFONT}MK
 STR_CID_NAPHTHA                                                                 :{TINYFONT}NA
 STR_CID_NICKEL                                                                  :{TINYFONT}NK
@@ -349,7 +360,9 @@ STR_CID_VEHICLE_PARTS                                                           
 STR_CID_VEHICLES                                                                :{TINYFONT}VS
 STR_CID_WOOL                                                                    :{TINYFONT}WL
 STR_CID_YARN                                                                    :{TINYFONT}YN
+STR_CID_YEAST                                                                   :{TINYFONT}YS
 STR_CID_ZINC                                                                    :{TINYFONT}ZN
+STR_CID_ZINC_ORE                                                                :{TINYFONT}ZO
 
 
 STR_ERR_CLIMATE_TOYLAND                                                         :{ORANGE}FIRS is not designed to be used with Toyland climate
@@ -474,6 +487,7 @@ STR_IND_VINEYARD                                                                
 STR_IND_VEHICLE_DISTRIBUTOR                                                     :Vehicle Distributor
 STR_IND_WHARF                                                                   :Wharf
 STR_IND_WIRE_AND_SECTION_MILL                                                   :Wire and Section Mill
+STR_IND_ZINC_SMELTER                                                            :Zinc Smelter
 
 STR_FUND_ARABLE_FARM                                                            :{}{BLACK}Location: {YELLOW}Cannot be funded on snow or in deserts.
 STR_FUND_COFFEE_ESTATE                                                          :{}{BLACK}Location: {YELLOW}Cannot be funded on snow or in deserts.

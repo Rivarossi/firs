@@ -2,7 +2,7 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="civil_explosives_facility",
-    accept_cargos_with_input_ratios=[("NHNO", 6), ("PETR", 2)],
+    accept_cargos_with_input_ratios=[("NH3_", 4), ("SUAC", 4)],
     prod_cargo_types_with_output_ratios=[("BOOM", 8)],
     combined_cargos_boost_prod=True,
     prob_in_game="3",
@@ -14,7 +14,7 @@ industry = IndustrySecondary(
     fund_cost_multiplier="170",
 )
 
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+industry.economy_variations['MILD_MILD_WEST'].enabled = True
 
 industry.add_tile(
     id="civil_explosives_facility_tile_1",

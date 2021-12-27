@@ -7,10 +7,8 @@ from industries import aluminium_plant
 aluminium_plant.industry.register()
 """
 
-""" BLTC
 from industries import ammonia_plant
 ammonia_plant.industry.register()
-"""
 
 from industries import arable_farm
 
@@ -74,10 +72,8 @@ from industries import cider_mill
 
 cider_mill.industry.register()
 
-""" BLTC
 from industries import civil_explosives_facility
 civil_explosives_facility.industry.register()
-"""
 
 """
 from industries import chromite_mine
@@ -170,10 +166,8 @@ from industries import ferrochrome_smelter
 ferrochrome_smelter.industry.register()
 """
 
-""" BLTC
 from industries import fertiliser_plant
 fertiliser_plant.industry.register()
-"""
 
 """
 from industries import fischer_tropsch_plant
@@ -330,10 +324,8 @@ from industries import phosphate_mine
 
 phosphate_mine.industry.register()
 
-""" BLTC
 from industries import phosphoric_acid_plant
 phosphoric_acid_plant.industry.register()
-"""
 
 """ BLTC # should be one of the polymer plants (pvc?)
 from industries import plastics_plant
@@ -484,3 +476,6 @@ wharf.industry.register()
 from industries import wire_and_section_mill
 
 wire_and_section_mill.industry.register()
+from industries import zinc_smelter
+
+zinc_smelter.industry.register()

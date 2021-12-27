@@ -45,7 +45,7 @@ industry_numeric_ids = dict(
     stockyard=37,
     ####UNUSED?####machine_shop = 38,
     port=39,
-    ###BLTC###ammonia_plant = 40,
+    ammonia_plant = 40,
     lumber_yard=41,
     ###BLTC###textile_mill = 42,
     vineyard=43,
@@ -111,19 +111,21 @@ industry_numeric_ids = dict(
     sheet_and_pipe_mill=103,
     ###BLTC###solvay_plant = 104,
     ###BLTC###salt_mine = 105,
-    ###BLTC###fertiliser_plant = 106,
-    ###BLTC###civil_explosives_facility = 107,
-    ###BLTC###phosphoric_acid_plant = 108,
+    fertiliser_plant = 106,
+    civil_explosives_facility = 107,
+    phosphoric_acid_plant = 108,
     ###BLTC###sulphuric_acid_plant = 109,
     ###BLTC###polypropylene_plant = 110,
     ###BLTC###polyethylene_plant = 111,
     ###BLTC###ethylene_cracker = 112,
     ##IAHC?##sugar_refinery = 113,
+    zinc_smelter = 113,
 )
 
 # Definition of industry tile numeric IDs
 # tiles 0-xxx currently vacant
 tile_numeric_ids = dict(
+    zinc_smelter_tile_1=84,
     plaza_tile_1=85,
     integrated_steel_mill_tile_1=86,
     integrated_steel_mill_tile_2=87,
