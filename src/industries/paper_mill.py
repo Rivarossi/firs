@@ -30,6 +30,16 @@ industry.economy_variations["BASIC_ARCTIC"].prod_cargo_types_with_output_ratios 
     ("PAPR", 8)
 ]
 
+industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
+    ("KAOL", 2),
+    ("WOOD", 4),
+    ("LYE_", 2),
+]
+industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
+    ("PAPR", 8)
+]
+
 # industry uses layouts and sprites from default game, no custom layouts etc
 
 industry.add_tile(

@@ -56,6 +56,10 @@ from cargos import carbon_black
 
 carbon_black.cargo.register()
 
+from cargos import carbon_dioxide
+
+carbon_dioxide.cargo.register()
+
 from cargos import carbon_steel
 
 carbon_steel.cargo.register()
@@ -167,10 +171,8 @@ from cargos import food
 
 food.cargo.register()
 
-""" BLTC
 from cargos import food_additives
 food_additives.cargo.register()
-"""
 
 """ IAHC
 from cargos import formic_acid
