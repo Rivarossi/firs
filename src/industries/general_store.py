@@ -25,7 +25,7 @@ industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = [
 ]
 
 industry.enable_in_economy("BASIC_TROPIC")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
 industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].prob_map_gen = "14"

@@ -24,7 +24,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-# industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+# industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 industry.enable_in_economy("STEELTOWN")
 industry.economy_variations[
     "STEELTOWN"

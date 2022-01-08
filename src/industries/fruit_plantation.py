@@ -15,7 +15,7 @@ industry = IndustryPrimaryOrganic(
     override_default_construction_states=True,
 )
 
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 industry.enable_in_economy("IN_A_HOT_COUNTRY")
 
 industry.add_tile(

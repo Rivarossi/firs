@@ -17,7 +17,7 @@ industry = IndustryInformative(
 industry.enable_in_economy("BASIC_TEMPERATE")
 industry.enable_in_economy("BASIC_ARCTIC")
 industry.enable_in_economy("BASIC_TROPIC")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.enable_in_economy("STEELTOWN")
 

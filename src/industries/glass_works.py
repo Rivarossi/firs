@@ -23,7 +23,7 @@ industry.economy_variations["BASIC_TEMPERATE"].prod_cargo_types_with_output_rati
     ("GOOD", 8)
 ]
 
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
 industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [

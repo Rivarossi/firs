@@ -21,7 +21,7 @@ industry = IndustryPrimaryOrganic(
 )
 
 industry.enable_in_economy("BASIC_TEMPERATE")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
