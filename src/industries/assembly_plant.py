@@ -9,8 +9,12 @@ industry = IndustrySecondary(
         ("TYRE", 2),
     ],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("VEHI", 6), ("ENSP", 1), ("FMSP", 1)],
-    prob_in_game="3",
+    prod_cargo_types_with_output_ratios=[
+        ("VEHI", 6),
+        ("ENSP", 1),
+        ("FMSP", 1),
+    ],
+    prob_in_game="1",  # low chance of build during gameplay
     prob_map_gen="5",
     map_colour="141",
     name="string(STR_IND_ASSEMBLY_PLANT)",
@@ -20,7 +24,6 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "STEELTOWN",
-    prob_in_game="1",  # low chance of build during gameplay
 )
 
 industry.add_tile(

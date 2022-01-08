@@ -2,7 +2,9 @@ from industry import IndustryPrimaryOrganic, TileLocationChecks
 
 industry = IndustryPrimaryOrganic(
     id="fruit_plantation",
-    prod_cargo_types_with_multipliers=[("FRUT", 16)],
+    prod_cargo_types_with_multipliers=[
+        ("FRUT", 16),
+    ],
     prob_in_game="4",
     prob_map_gen="10",
     prospect_chance="0.75",
@@ -16,7 +18,9 @@ industry = IndustryPrimaryOrganic(
 )
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+)
 
 industry.add_tile(
     id="fruit_plantation_tile_1",

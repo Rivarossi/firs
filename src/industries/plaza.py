@@ -14,12 +14,22 @@ industry = IndustryInformative(
     fund_cost_multiplier="15",
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+)
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.enable_in_economy("STEELTOWN")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+)
+industry.enable_in_economy(
+    "STEELTOWN",
+)
 
 industry.add_tile(
     id="plaza_tile_1",

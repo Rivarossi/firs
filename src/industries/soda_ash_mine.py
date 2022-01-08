@@ -14,7 +14,9 @@ industry = IndustryPrimaryExtractive(
     pollution_and_squalor_factor=1,
 )
 
-industry.enable_in_economy("STEELTOWN")
+industry.enable_in_economy(
+    "STEELTOWN",
+)
 
 industry.add_tile(
     id="soda_ash_mine_tile_1",

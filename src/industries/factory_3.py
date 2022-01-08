@@ -9,7 +9,10 @@ industry = IndustrySecondary(
         ("NH3_", 2),
     ],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("PACH", 4), ("ENUM", 4)],
+    prod_cargo_types_with_output_ratios=[
+        ("PACH", 4),
+        ("ENUM", 4),
+    ],
     prob_in_game="7",
     prob_map_gen="8",
     map_colour="166",
@@ -18,7 +21,9 @@ industry = IndustrySecondary(
     fund_cost_multiplier="95",
 )
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="factory_3_tile_1",

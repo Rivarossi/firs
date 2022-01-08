@@ -3,7 +3,9 @@ from industry import IndustryPrimaryNoSupplies, TileLocationChecks
 industry = IndustryPrimaryNoSupplies(
     id="fishing_grounds",
     accept_cargo_types=[],
-    prod_cargo_types_with_multipliers=[("FISH", 8)],
+    prod_cargo_types_with_multipliers=[
+        ("FISH", 8),
+    ],
     prob_in_game="14",
     prob_map_gen="14",
     substitute="5",
@@ -23,13 +25,21 @@ industry = IndustryPrimaryNoSupplies(
     fund_cost_multiplier="88",
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
-industry.enable_in_economy("BASIC_TROPIC")
-industry.enable_in_economy("BASIC_ARCTIC")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+)
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
 # ['IN_A_HOT_COUNTRY'].enabled = True
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="fishing_grounds_tile_1",

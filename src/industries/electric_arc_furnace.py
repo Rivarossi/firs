@@ -9,8 +9,12 @@ industry = IndustrySecondary(
         ("O2__", 1),
     ],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("STCB", 4), ("STST", 2), ("SLAG", 2)],
-    prob_in_game="3",
+    prod_cargo_types_with_output_ratios=[
+        ("STCB", 4),
+        ("STST", 2),
+        ("SLAG", 2),
+    ],
+    prob_in_game="1",  # low chance of build during gameplay
     prob_map_gen="5",
     map_colour="186",
     name="string(STR_IND_ELECTRIC_ARC_FURNACE)",
@@ -21,7 +25,6 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "STEELTOWN",
-    prob_in_game="1",  # low chance of build during gameplay
 )
 
 industry.enable_in_economy(

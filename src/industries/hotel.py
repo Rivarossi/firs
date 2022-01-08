@@ -2,8 +2,14 @@ from industry import IndustryTertiary, TileLocationChecks
 
 industry = IndustryTertiary(
     id="hotel",
-    accept_cargo_types=["FOOD", "BEER", "PASS"],
-    prod_cargo_types_with_multipliers=[("PASS", 17)],
+    accept_cargo_types=[
+        "FOOD",
+        "BEER",
+        "PASS",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("PASS", 17),
+    ],
     prob_in_game="15",
     prob_map_gen="10",
     map_colour="189",
@@ -15,9 +21,13 @@ industry = IndustryTertiary(
     fund_cost_multiplier="101",
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
 
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
 
 industry.enable_in_economy(
     "BASIC_ARCTIC",
@@ -29,7 +39,9 @@ industry.enable_in_economy(
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+)
 
 industry.add_tile(
     id="hotel_tile_1",

@@ -15,7 +15,9 @@ industry = IndustryTertiary(
     fund_cost_multiplier="8",
 )
 
-industry.enable_in_economy("STEELTOWN")
+industry.enable_in_economy(
+    "STEELTOWN",
+)
 
 industry.add_tile(
     id="vehicle_distributor_tile_1",

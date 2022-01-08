@@ -2,8 +2,13 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="methanol_plant",
-    accept_cargos_with_input_ratios=[("OIL_", 4), ("NITR", 4)],
-    prod_cargo_types_with_output_ratios=[("RFPR", 8)],
+    accept_cargos_with_input_ratios=[
+        ("OIL_", 4),  # !!!
+        ("NITR", 4),  # !!!
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("RFPR", 8),
+    ],
     combined_cargos_boost_prod=True,
     prob_in_game="3",
     prob_map_gen="5",
@@ -22,7 +27,7 @@ industry = IndustrySecondary(
 )
 
 """
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy("MILD_MILD_WEST",)
 ["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("SALT", 2),
     ("NAPH", 2),

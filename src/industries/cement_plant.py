@@ -2,9 +2,9 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="cement_plant",
-    accept_cargos_with_input_ratios=[("COAL", 2), ("CLAY", 2), ("LIME", 4)],
+    accept_cargos_with_input_ratios=[],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("CMNT", 8)],
+    prod_cargo_types_with_output_ratios=[],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="19",
@@ -38,7 +38,17 @@ industry.enable_in_economy(
 # ['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('COAL', 2), ('CLAY', 2), ('GRVL', 4)]
 # ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('CMNT', 8)]
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargos_with_input_ratios=[
+        ("COAL", 2),
+        ("CLAY", 2),
+        ("LIME", 4),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("CMNT", 8),
+    ],
+)
 
 industry.add_tile(
     id="cement_plant_tile_1",

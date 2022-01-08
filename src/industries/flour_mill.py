@@ -2,8 +2,12 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="flour_mill",
-    accept_cargos_with_input_ratios=[("GRAI", 6)],
-    prod_cargo_types_with_output_ratios=[("FOOD", 8)],
+    accept_cargos_with_input_ratios=[
+        ("GRAI", 6),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("FOOD", 8),
+    ],
     prob_map_gen="10",
     prob_in_game="10",
     map_colour="49",
@@ -27,7 +31,9 @@ industry.enable_in_economy(
         ("MAIZ", 6),
     ],
 )
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="flour_mill_tile_1",

@@ -11,7 +11,9 @@ industry = IndustrySecondary(
         ("GLAS", 2),
     ],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("PACK", 8)],
+    prod_cargo_types_with_output_ratios=[
+        ("PACK", 8),
+    ],
     prob_in_game="7",
     prob_map_gen="8",
     map_colour="166",
@@ -20,7 +22,9 @@ industry = IndustrySecondary(
     fund_cost_multiplier="95",
 )
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="factory_1_tile_1",

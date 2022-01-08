@@ -2,8 +2,10 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="food_processor",
-    accept_cargos_with_input_ratios=[("BEAN", 6), ("FRUT", 6)],
-    prod_cargo_types_with_output_ratios=[("FOOD", 8)],
+    accept_cargos_with_input_ratios=[],
+    prod_cargo_types_with_output_ratios=[
+        ("FOOD", 8),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="181",
@@ -18,7 +20,13 @@ industry = IndustrySecondary(
     fund_cost_multiplier="65",
 )
 
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+    accept_cargos_with_input_ratios=[
+        ("BEAN", 6),
+        ("FRUT", 6),
+    ],
+)
 
 industry.enable_in_economy(
     "IN_A_HOT_COUNTRY",

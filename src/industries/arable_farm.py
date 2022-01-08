@@ -2,7 +2,7 @@ from industry import IndustryPrimaryOrganic, TileLocationChecks
 
 industry = IndustryPrimaryOrganic(
     id="arable_farm",
-    prod_cargo_types_with_multipliers=[("GRAI", 14), ("BEAN", 14)],
+    prod_cargo_types_with_multipliers=[],
     prob_in_game="4",
     prob_map_gen="11",
     map_colour="209",

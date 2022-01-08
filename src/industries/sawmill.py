@@ -17,9 +17,15 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+)
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+)
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="sawmill_tile_1",

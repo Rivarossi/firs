@@ -7,7 +7,9 @@ industry = IndustrySecondary(
         ("PHAC", 3),
         ("POTA", 2),
     ],
-    prod_cargo_types_with_output_ratios=[("FMSP", 8)],
+    prod_cargo_types_with_output_ratios=[
+        ("FMSP", 8),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     prod_multiplier="[0, 0]",
@@ -17,7 +19,9 @@ industry = IndustrySecondary(
     fund_cost_multiplier="170",
 )
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="fertiliser_plant_tile_1",

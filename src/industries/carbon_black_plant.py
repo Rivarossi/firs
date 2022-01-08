@@ -3,9 +3,13 @@ from industry import IndustrySecondary, TileLocationChecks
 industry = IndustrySecondary(
     id="carbon_black_plant",
     # amount of output is unrealistic 8:8 but input is usually small, so give a decent amount out eh?
-    accept_cargos_with_input_ratios=[("CTAR", 8)],
-    prod_cargo_types_with_output_ratios=[("CBLK", 8)],
-    prob_in_game="3",
+    accept_cargos_with_input_ratios=[
+        ("CTAR", 8),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("CBLK", 8),
+    ],
+    prob_in_game="0",  # do not build during gameplay
     prob_map_gen="5",
     map_colour="178",
     special_flags=["IND_FLAG_MILITARY_HELICOPTER_CAN_EXPLODE"],
@@ -21,7 +25,7 @@ industry = IndustrySecondary(
 )
 
 industry.enable_in_economy(
-    "STEELTOWN", prob_in_game="0"  # do not build during gameplay
+    "STEELTOWN",
 )
 
 industry.add_tile(

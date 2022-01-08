@@ -2,11 +2,12 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="lime_kiln",
-    accept_cargos_with_input_ratios=[
-        ("LIME", 8)
-    ],  # no fuel source, at least in Steeltown, it's better for gameplay - assume natural gas fuel
+    accept_cargos_with_input_ratios=[],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("QLME", 6), ("FMSP", 2)],
+    prod_cargo_types_with_output_ratios=[
+        ("QLME", 6),
+        ("FMSP", 2),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="119",
@@ -27,6 +28,9 @@ industry = IndustrySecondary(
 # industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 industry.enable_in_economy(
     "STEELTOWN",
+    accept_cargos_with_input_ratios=[
+        ("LIME", 8)
+    ],  # no fuel source, at least in Steeltown, it's better for gameplay - assume natural gas fuel
     prob_in_game="1",  # low probability of build during gameplay
 )
 

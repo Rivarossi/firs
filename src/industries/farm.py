@@ -4,7 +4,7 @@ industry = IndustryPrimaryOrganic(
     id="farm",
     prod_cargo_types_with_multipliers=[],
     prob_in_game="3",
-    prob_map_gen="15",  # intended to be relatively prevalent in Steeltown, split this per economy if needed
+    prob_map_gen="15",
     map_colour="85",
     special_flags=[
         "IND_FLAG_PLANT_FIELDS_PERIODICALLY",
@@ -29,14 +29,17 @@ industry.enable_in_economy(
     prob_map_gen="14",
 )
 
-# ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('MAIZ', 14), ('LVST', 13), ('NUTS', 14), ('WOOL', 10)]
+# ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('MAIZ', 14), ('LVST', 13), ('NUTS', 14), ('WOOL', 10),]
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-###['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('GRAI', 14), ('LVST', 13)]
+###['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('GRAI', 14), ('LVST', 13),]
 
 industry.enable_in_economy(
     "STEELTOWN",
-    prod_cargo_types_with_multipliers=[("FOOD", 14)],
+    prod_cargo_types_with_multipliers=[
+        ("FOOD", 14),
+    ],
+    prob_map_gen="15",  # intended to be relatively prevalent in Steeltown, split this per economy if needed
 )
 
 industry.enable_in_economy(

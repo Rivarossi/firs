@@ -2,12 +2,16 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="engine_plant",
-    accept_cargos_with_input_ratios=[("CSTI", 4), ("ALUM", 2), ("SAND", 2)],
+    accept_cargos_with_input_ratios=[
+        ("CSTI", 4),
+        ("ALUM", 2),
+        ("SAND", 2),
+    ],
     combined_cargos_boost_prod=True,
     prod_cargo_types_with_output_ratios=[
-        ("VENG", 6)
+        ("VENG", 6),
     ],  # high engine plant production is unwanted as there is only one output cargo
-    prob_in_game="3",
+    prob_in_game="0",  # do not build during gameplay
     prob_map_gen="5",
     map_colour="45",
     name="string(STR_IND_ENGINE_PLANT)",
@@ -18,7 +22,6 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "STEELTOWN",
-    prob_in_game="0",  # do not build during gameplay
 )
 
 industry.add_tile(

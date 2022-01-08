@@ -3,8 +3,8 @@ from industry import IndustrySecondary, TileLocationChecks
 industry = IndustrySecondary(
     id="coke_oven",
     accept_cargos_with_input_ratios=[("COAL", 8)],
-    prod_cargo_types_with_output_ratios=[("COKE", 6), ("CTAR", 1), ("SULP", 1)],
-    prob_in_game="3",
+    prod_cargo_types_with_output_ratios=[],
+    prob_in_game="0",  # do not build during gameplay
     prob_map_gen="5",
     map_colour="183",
     location_checks=dict(
@@ -20,10 +20,19 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    prod_cargo_types_with_output_ratios=[
+        ("COKE", 6),
+    ],
+)
 industry.enable_in_economy(
     "STEELTOWN",
-    prob_in_game="0",  # do not build during gameplay
+    prod_cargo_types_with_output_ratios=[
+        ("COKE", 6),
+        ("CTAR", 1),
+        ("SULP", 1),
+    ],
 )
 
 industry.add_tile(

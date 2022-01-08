@@ -13,7 +13,9 @@ industry = IndustryPrimaryOrganic(
     fund_cost_multiplier="45",
 )
 
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
 
 industry.add_tile(
     id="ranch_tile_1",

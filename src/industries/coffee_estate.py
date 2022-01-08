@@ -2,7 +2,7 @@ from industry import IndustryPrimaryOrganic, TileLocationChecks
 
 industry = IndustryPrimaryOrganic(
     id="coffee_estate",
-    prod_cargo_types_with_multipliers=[("JAVA", 11), ("FRUT", 8)],
+    prod_cargo_types_with_multipliers=[],
     map_colour="70",
     prob_in_game="3",
     prob_map_gen="10",
@@ -15,7 +15,13 @@ industry = IndustryPrimaryOrganic(
     override_default_construction_states=True,
 )
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    prod_cargo_types_with_multipliers=[
+        ("JAVA", 11),
+        ("FRUT", 8),
+    ],
+)
 industry.enable_in_economy(
     "BASIC_TROPIC",
     prod_cargo_types_with_multipliers=[

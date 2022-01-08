@@ -16,7 +16,9 @@ industry = IndustryPrimaryOrganic(
     pollution_and_squalor_factor=1,
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
 industry.enable_in_economy(
     "MILD_MILD_WEST",
     prod_cargo_types_with_multipliers=[

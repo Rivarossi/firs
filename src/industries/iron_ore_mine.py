@@ -2,7 +2,9 @@ from industry import IndustryPrimaryExtractive, TileLocationChecks
 
 industry = IndustryPrimaryExtractive(
     id="iron_ore_mine",
-    prod_cargo_types_with_multipliers=[("IORE", 20)],
+    prod_cargo_types_with_multipliers=[
+        ("IORE", 20),
+    ],
     map_colour="55",
     prob_in_game="4",
     prob_map_gen="7",
@@ -14,7 +16,9 @@ industry = IndustryPrimaryExtractive(
 )
 
 
-industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
 industry.enable_in_economy(
     "STEELTOWN",
     prob_map_gen="10",

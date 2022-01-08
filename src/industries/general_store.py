@@ -2,7 +2,11 @@ from industry import IndustryTertiary, TileLocationChecks
 
 industry = IndustryTertiary(
     id="general_store",
-    accept_cargo_types=["FOOD", "GOOD", "BEER"],
+    accept_cargo_types=[
+        "FOOD",
+        "GOOD",
+        "BEER",
+    ],
     prod_cargo_types=[],
     prob_in_game="12",
     prob_map_gen="24",
@@ -17,7 +21,9 @@ industry = IndustryTertiary(
     fund_cost_multiplier="15",
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+)
 
 industry.enable_in_economy(
     "BASIC_ARCTIC",
@@ -26,7 +32,9 @@ industry.enable_in_economy(
     ],
 )
 
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
 industry.enable_in_economy(

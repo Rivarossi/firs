@@ -2,9 +2,14 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="copper_refinery",
-    accept_cargos_with_input_ratios=[("CORE", 5), ("RFPR", 3)],
+    accept_cargos_with_input_ratios=[
+        ("CORE", 5),
+        ("RFPR", 3),
+    ],
     combined_cargos_boost_prod=True,
-    prod_cargo_types_with_output_ratios=[("COPR", 8)],
+    prod_cargo_types_with_output_ratios=[
+        ("COPR", 8),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="64",
@@ -21,9 +26,13 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+)
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+)
 # ['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('COCO', 8)]
 # ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('COPR', 4), ('SULP', 4)]
 

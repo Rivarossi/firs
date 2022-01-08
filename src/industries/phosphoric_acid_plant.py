@@ -14,7 +14,9 @@ industry = IndustrySecondary(
     fund_cost_multiplier="170",
 )
 
-industry.enable_in_economy("MILD_MILD_WEST")
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+)
 
 industry.add_tile(
     id="phosphoric_acid_plant_tile_1",
