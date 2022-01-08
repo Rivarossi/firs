@@ -41,9 +41,8 @@ industry.enable_in_economy(
 industry.enable_in_economy(
     "MILD_MILD_WEST",
     accept_cargos_with_input_ratios=[
-        ("COAL", 2),
-        ("CLAY", 2),
-        ("LIME", 4),
+        ("COAL", 3),
+        ("LIME", 5),
     ],
     prod_cargo_types_with_output_ratios=[
         ("CMNT", 8),
