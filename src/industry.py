@@ -910,6 +910,8 @@ class IndustryLocationChecks(object):
         self.flour_mill_layouts_by_date = location_args.get(
             "flour_mill_layouts_by_date", None
         )
+        # economies may optionally define specific regions which industries must locate in for that economy
+        self.economy_region_checks = {}
 
     def get_pre_player_founding_checks(self, incompatible_industries):
         result = []
@@ -994,6 +996,9 @@ class IndustryLocationChecks(object):
             # don't check for self type, we have other ways to do that (occasionally economy cargo variations trigger this)
             if industry.id != self.industry.id:
                 result.append(IndustryLocationCheckIndustryMinDistance(industry.id, 16))
+
+        for economy_id, region_list in self.economy_region_checks.items():
+            print(economy_id, region_list)
 
         return result
 
@@ -1205,10 +1210,15 @@ class Industry(object):
     def enable_in_economy(self, economy_id, **kwargs):
         self.economy_variations[economy_id].enabled = True
         for kwarg_name, kwarg_value in kwargs.items():
-            if hasattr(self.economy_variations[economy_id], kwarg_name):
-                setattr(self.economy_variations[economy_id], kwarg_name, kwarg_value)
+            # special case for location checks, which must be appended to the dedicated IndustryLocationChecks instance holding the standard checks for the industry
+            if kwarg_name == 'locate_in_specific_regions':
+                # !!! list of possible regions, or single item?
+                self.location_checks.economy_region_checks[economy_id] = kwarg_value
             else:
-                raise NameError("unknown economy variation kwarg '" + kwarg_name + "' declared by " + self.id)
+                if hasattr(self.economy_variations[economy_id], kwarg_name):
+                    setattr(self.economy_variations[economy_id], kwarg_name, kwarg_value)
+                else:
+                    raise NameError("unknown economy variation kwarg '" + kwarg_name + "' declared by " + self.id)
 
     def add_tile(self, *args, **kwargs):
         new_tile = Tile(self.id, *args, **kwargs)

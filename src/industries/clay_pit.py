@@ -20,6 +20,9 @@ industry.enable_in_economy(
 )
 industry.enable_in_economy(
     "MILD_MILD_WEST",
+    locate_in_specific_regions=[
+        "cabbage",
+    ],
 )
 
 # 2 tiles for this industry: pit outer tile cannot be on slopes; pit inner tiles and processor tiles can be
