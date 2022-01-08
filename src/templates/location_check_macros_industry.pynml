@@ -4,7 +4,7 @@
 switch (FEAT_INDUSTRIES, SELF, ${industry.id}_check_location_post_player_founding_checks_AND,
     [
     <!--!
-        checks where ALL condiitions must be met
+        checks where ALL conditions must be met
         assumes all checks return 1 for allow and 0 otherwise, then we just AND all the results
     -->
     <tal:location_checks_industry repeat="location_check industry.location_checks.get_post_player_founding_checks_AND(incompatible_industries)">
