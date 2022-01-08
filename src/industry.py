@@ -1004,7 +1004,7 @@ class IndustryLocationChecks(object):
                 result.append(IndustryLocationCheckIndustryMinDistance(industry.id, 16))
 
         for economy_id, region_list in self.economy_region_checks.items():
-            print(economy_id, region_list)
+            result.append(IndustryLocationCheckEconomySpecificRegion(economy_id, region_list))
 
         return result
 
@@ -1101,6 +1101,17 @@ class IndustryLocationCheckCoastDistance(IndustryLocationCheck):
 
     def __init__(self):
         self.procedure_name = "disallow_too_far_from_coast"
+        self.params = []
+
+
+
+class IndustryLocationCheckEconomySpecificRegion(IndustryLocationCheck):
+    """Check for a region specific to the economy"""
+
+    def __init__(self, economy_id, region_list):
+        self.procedure_name = "economy_region_test_cabbage"
+        self.economy_id = economy_id
+        self.region_list = region_list
         self.params = []
 
 
