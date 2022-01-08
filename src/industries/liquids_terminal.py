@@ -32,6 +32,7 @@ industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multiplier
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("OIL_", 16),
+    ("ACAC", 12),
 ]
 
 industry.add_tile(

@@ -21,7 +21,9 @@ industry = IndustrySecondary(
 industry.economy_variations["BASIC_TEMPERATE"].enabled = True
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
-    ("AAPL", 6),
+    ("AAPL", 5),
+    ("PACK", 2),
+    ("ENUM", 1),
 ]
 
 industry.add_tile(

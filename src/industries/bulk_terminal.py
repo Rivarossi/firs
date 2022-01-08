@@ -37,6 +37,8 @@ industry.economy_variations["MILD_MILD_WEST"].enabled = True
 # industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = ["FOOD", "POTA", "CHLO"]
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("IORE", 19),
+    ("SALT", 16),
+    ("TIN_", 16),
 ]
 
 industry.economy_variations["STEELTOWN"].enabled = True

@@ -11,9 +11,9 @@ industry_numeric_ids = dict(
     cryo_plant=3,
     iron_ore_mine=4,
     peatlands=5,
-    ####UNUSED?####smithy_forge = 6,
+    nuclear_power_plant = 6,
     blast_furnace=7,
-    ####UNUSED?####aluminium_plant = 8,
+    aluminium_plant = 8,
     metal_workshop=9,
     quarry=10,
     forest=11,
@@ -105,9 +105,9 @@ industry_numeric_ids = dict(
     tinplate_works = 97,
     cider_mill = 98,
     lime_kiln=99,
-    ###BLTC###factory_1 = 100,
+    factory_1 = 100,
     ###BLTC###factory_2 = 101,
-    ###BLTC###factory_3 = 102,
+    factory_3 = 102,
     sheet_and_pipe_mill=103,
     ###BLTC###solvay_plant = 104,
     ###BLTC###salt_mine = 105,
@@ -120,11 +120,14 @@ industry_numeric_ids = dict(
     ###BLTC###ethylene_cracker = 112,
     ##IAHC?##sugar_refinery = 113,
     zinc_smelter = 113,
+    feed_mill = 114,
 )
 
 # Definition of industry tile numeric IDs
 # tiles 0-xxx currently vacant
 tile_numeric_ids = dict(
+    feed_mill_tile_1=83,
+    nuclear_power_plant_tile_1=84,
     zinc_smelter_tile_1=84,
     plaza_tile_1=85,
     integrated_steel_mill_tile_1=86,

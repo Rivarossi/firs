@@ -46,6 +46,7 @@ industry.economy_variations['IN_A_HOT_COUNTRY'].enabled = True
 industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('SULP', 2), ('PHOS', 2), ('NH3_', 2), ('POTA', 2)]
 industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('FMSP', 4), ('BOOM', 4)]
 """
+"""
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("SALT", 2),
@@ -56,6 +57,7 @@ industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratio
     ("LYE_", 4),
     ("PLAS", 4)
 ]
+"""
 
 industry.add_tile(
     id="methanol_plant_tile_1",

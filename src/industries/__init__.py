@@ -2,12 +2,12 @@ registered_industries = []
 
 # keep these alphabetised for ease of maintaining
 
-"""
 from industries import aluminium_plant
+
 aluminium_plant.industry.register()
-"""
 
 from industries import ammonia_plant
+
 ammonia_plant.industry.register()
 
 from industries import arable_farm
@@ -73,6 +73,7 @@ from industries import cider_mill
 cider_mill.industry.register()
 
 from industries import civil_explosives_facility
+
 civil_explosives_facility.industry.register()
 
 """
@@ -146,20 +147,26 @@ from industries import ethylene_cracker
 ethylene_cracker.industry.register()
 """
 
-""" BLTC
 from industries import factory_1
+
 factory_1.industry.register()
 
+"""
 from industries import factory_2
 factory_2.industry.register()
+"""
 
 from industries import factory_3
+
 factory_3.industry.register()
-"""
 
 from industries import farm
 
 farm.industry.register()
+
+from industries import feed_mill
+
+feed_mill.industry.register()
 
 """
 from industries import ferrochrome_smelter
@@ -167,6 +174,7 @@ ferrochrome_smelter.industry.register()
 """
 
 from industries import fertiliser_plant
+
 fertiliser_plant.industry.register()
 
 """
@@ -292,6 +300,10 @@ from industries import nitrate_mine
 
 nitrate_mine.industry.register()
 
+from industries import nuclear_power_plant
+
+nuclear_power_plant.industry.register()
+
 from industries import oil_wells
 
 oil_wells.industry.register()
@@ -325,6 +337,7 @@ from industries import phosphate_mine
 phosphate_mine.industry.register()
 
 from industries import phosphoric_acid_plant
+
 phosphoric_acid_plant.industry.register()
 
 """ BLTC # should be one of the polymer plants (pvc?)

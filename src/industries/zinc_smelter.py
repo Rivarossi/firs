@@ -2,14 +2,16 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="zinc_smelter",
-    accept_cargos_with_input_ratios=[("ZORE", 8)],
+    accept_cargos_with_input_ratios=[("ZORE", 4), ("COKE", 4)],
     prod_cargo_types_with_output_ratios=[("ZINC", 4), ("SUAC", 4)],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="19",
     location_checks=dict(
         near_at_least_one_of_these_keystone_industries=[
-            ["wharf",], # assumes zinc ore from wharf in MMW
+            [
+                "wharf",
+            ],  # assumes zinc ore from wharf in MMW
             56,
         ],
         same_type_distance=100,

@@ -34,6 +34,11 @@ industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios 
     ("LVST", 6)
 ]
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
+    ("LVST", 6),
+    ("PACK", 2),
+    ("ENUM", 1),
+]
 
 industry.add_tile(
     id="stockyard_tile_1",

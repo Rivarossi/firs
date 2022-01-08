@@ -51,11 +51,11 @@ industry.economy_variations["MILD_MILD_WEST"].enabled = True
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("SALT", 2),
     ("NAPH", 2),
-    ("NH3_", 2),
+    ("ACAC", 2),
 ]
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
-    ("LYE_", 4),
-    ("PLAS", 4)
+    ("PLAS", 3),
+    ("CHIM", 2),
 ]
 
 industry.add_tile(

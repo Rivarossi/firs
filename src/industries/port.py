@@ -78,7 +78,7 @@ industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = [
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("ENSP", 19),
     ("FMSP", 7),
-    ("RFPR", 19),
+    ("GLAS", 19),
 ]
 
 industry.add_tile(

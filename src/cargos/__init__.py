@@ -17,10 +17,9 @@ from cargos import alloy_steel
 
 alloy_steel.cargo.register()
 
-"""
 from cargos import aluminia
+
 aluminia.cargo.register()
-"""
 
 from cargos import aluminium
 
@@ -47,6 +46,10 @@ bauxite.cargo.register()
 from cargos import beans
 
 beans.cargo.register()
+
+from cargos import bitumen
+
+bitumen.cargo.register()
 
 from cargos import building_materials
 
@@ -79,6 +82,10 @@ cement.cargo.register()
 from cargos import chemicals
 
 chemicals.cargo.register()
+
+from cargos import chemical_intermediates
+
+chemical_intermediates.cargo.register()
 
 from cargos import chlorine
 
@@ -172,7 +179,12 @@ from cargos import food
 food.cargo.register()
 
 from cargos import food_additives
+
 food_additives.cargo.register()
+
+from cargos import flour
+
+flour.cargo.register()
 
 """ IAHC
 from cargos import formic_acid
@@ -275,6 +287,18 @@ from cargos import nitrates
 
 nitrates.cargo.register()
 
+from cargos import nitric_acid
+
+nitric_acid.cargo.register()
+
+from cargos import nuclear_fuel
+
+nuclear_fuel.cargo.register()
+
+from cargos import nuclear_waste
+
+nuclear_waste.cargo.register()
+
 from cargos import nuts
 
 nuts.cargo.register()
@@ -287,10 +311,9 @@ from cargos import oxygen
 
 oxygen.cargo.register()
 
-""" BLTC
 from cargos import packaging
+
 packaging.cargo.register()
-"""
 
 from cargos import paints_and_coatings
 
@@ -299,6 +322,10 @@ paints_and_coatings.cargo.register()
 from cargos import paper
 
 paper.cargo.register()
+
+from cargos import paper_chemicals
+
+paper_chemicals.cargo.register()
 
 from cargos import passengers
 
@@ -345,6 +372,10 @@ potash.cargo.register()
 from cargos import propylene
 propylene.cargo.register()
 """
+
+from cargos import pulp_wood
+
+pulp_wood.cargo.register()
 
 from cargos import pyrite_ore
 

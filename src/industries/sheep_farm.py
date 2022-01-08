@@ -14,7 +14,9 @@ industry = IndustryPrimaryOrganic(
 )
 
 industry.economy_variations["MILD_MILD_WEST"].enabled = True
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers=[("LVST", 12)]
+industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
+    ("LVST", 12)
+]
 
 industry.add_tile(
     id="sheep_farm_tile_1",
