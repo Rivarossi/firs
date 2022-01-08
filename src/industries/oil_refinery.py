@@ -15,7 +15,7 @@ industry = IndustrySecondary(
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_output_ratios=[("PETR", 3), ("NAPH", 3), ("SULP", 2)]
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
     ("PETR", 3),
     ("NAPH", 3),

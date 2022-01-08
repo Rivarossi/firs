@@ -20,7 +20,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_ARCTIC")
 industry.economy_variations["BASIC_ARCTIC"].accept_cargos_with_input_ratios = [
     ("KAOL", 2),
     ("WOOD", 4),
@@ -30,7 +30,7 @@ industry.economy_variations["BASIC_ARCTIC"].prod_cargo_types_with_output_ratios 
     ("PAPR", 8)
 ]
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("KAOL", 2),
     ("PULP", 2),

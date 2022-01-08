@@ -24,7 +24,7 @@ industry = IndustryPrimaryOrganic(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_ARCTIC")
 
 industry.add_tile(
     id="fish_farm_tile_1",

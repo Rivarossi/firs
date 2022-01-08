@@ -16,7 +16,7 @@ industry = IndustryPrimaryPort(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargo_types = ['MNO2', 'FECR', 'RUBR']
 # industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('FORM', 12)]
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargo_types = [
@@ -33,7 +33,7 @@ industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multiplier
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_types = []
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('OIL_', 20), ('POTA', 12), ('PHOS', 12), ('MEOH', 12)]
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 # industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = ["FOOD", "POTA", "CHLO"]
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("IORE", 19),
@@ -41,7 +41,7 @@ industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers 
     ("TIN_", 16),
 ]
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations["STEELTOWN"].accept_cargo_types = ["FOOD", "POTA", "CHLO"]
 industry.economy_variations["STEELTOWN"].prod_cargo_types_with_multipliers = [
     ("MNO2", 19),

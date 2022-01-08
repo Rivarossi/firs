@@ -13,7 +13,7 @@ industry = IndustryPrimaryOrganic(
     fund_cost_multiplier="45",
 )
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("LVST", 12)
 ]

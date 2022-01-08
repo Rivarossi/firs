@@ -894,6 +894,8 @@ class IndustryLocationChecks(object):
         self.near_at_least_one_of_these_keystone_industries = location_args.get(
             "near_at_least_one_of_these_keystone_industries", None
         )
+        if self.near_at_least_one_of_these_keystone_industries is not None:
+            utils.echo_message('near_at_least_one_of_these_keystone_industries set by ' + industry.id + ', should be in economy location checks only')
         self.require_cluster = location_args.get("require_cluster", None)
         self.require_town_industry_count = location_args.get(
             "require_town_industry_count", None
@@ -1174,9 +1176,11 @@ class Industry(object):
         self.extra_graphics_switches = []
         self.industry_layouts = []
         self.default_industry_properties = IndustryProperties(**kwargs)
+        # economy variation structure is provisioned containing all economies, but with empty industry config, industry is then enabled for economies later
         self.economy_variations = {}
         for economy in registered_economies:
             self.add_economy_variation(economy)
+            utils.echo_message('legacy economy added for ' + self.id)
         self.template = kwargs.get(
             "template", None
         )  # template will be set by subcass, and/or by individual industry instances
@@ -1197,6 +1201,12 @@ class Industry(object):
         ):
             utils.echo_message(self.id + " is not used in any economy")
         registered_industries.append(self)
+
+    def enable_in_economy(self, economy_id, **kwargs):
+        print(economy_id, kwargs, self.id)
+        self.economy_variations[economy_id].enabled = True
+        for kwarg in kwargs:
+            print(kwarg)
 
     def add_tile(self, *args, **kwargs):
         new_tile = Tile(self.id, *args, **kwargs)

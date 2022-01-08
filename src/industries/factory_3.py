@@ -18,7 +18,7 @@ industry = IndustrySecondary(
     fund_cost_multiplier="95",
 )
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="factory_3_tile_1",

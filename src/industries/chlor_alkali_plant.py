@@ -17,7 +17,7 @@ industry = IndustrySecondary(
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_output_ratios = [('HYAC', 4), ('CHLO', 2), ('LYE_', 2)]
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations[
     "STEELTOWN"
 ].prob_in_game = "0"  # do not build during gameplay

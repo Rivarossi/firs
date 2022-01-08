@@ -17,18 +17,18 @@ industry = IndustryPrimaryExtractive(
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations["STEELTOWN"].prod_cargo_types_with_multipliers = [
     ("SAND", 14),
     ("LIME", 14),
 ]
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multipliers = [
     ("SAND", 14),
     ("GRVL", 14),
 ]
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
     ("LIME", 16),
 ]

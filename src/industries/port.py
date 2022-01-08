@@ -16,7 +16,7 @@ industry = IndustryPrimaryPort(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 industry.economy_variations["BASIC_TEMPERATE"].accept_cargo_types = [
     "GOOD",
     "KAOL",
@@ -29,7 +29,7 @@ industry.economy_variations["BASIC_TEMPERATE"].prod_cargo_types_with_multipliers
 ]
 industry.economy_variations["BASIC_TEMPERATE"].prob_map_gen = "10"
 
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_ARCTIC")
 industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = [
     "PAPR",
     "ZINC",
@@ -42,7 +42,7 @@ industry.economy_variations["BASIC_ARCTIC"].prod_cargo_types_with_multipliers = 
     ("FMSP", 9),
 ]
 
-industry.economy_variations["BASIC_TROPIC"].enabled = True
+industry.enable_in_economy("BASIC_TROPIC")
 industry.economy_variations["BASIC_TROPIC"].accept_cargo_types = [
     "COPR",
     "JAVA",
@@ -57,7 +57,7 @@ industry.economy_variations["BASIC_TROPIC"].prod_cargo_types_with_multipliers = 
     ("FMSP", 12),
 ]
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargo_types = [
     "COPR",
     "FRUT",
@@ -69,7 +69,7 @@ industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multiplier
 ]
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargo_types = ['DIAM', 'EOIL', 'JAVA', 'WDPR']
 # industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('GOOD', 14), ('SASH', 12)]
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = [
     "GOOD",
     "KAOL",

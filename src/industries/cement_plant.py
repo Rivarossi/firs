@@ -25,7 +25,7 @@ industry = IndustrySecondary(
 
 # industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
     ("PETR", 2),
     ("CLAY", 2),
@@ -36,7 +36,7 @@ industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_output_rat
 ]
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('COAL', 2), ('CLAY', 2), ('GRVL', 4)]
 # industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('CMNT', 8)]
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="cement_plant_tile_1",

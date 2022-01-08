@@ -16,12 +16,12 @@ industry = IndustrySecondary(
 )
 
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 industry.economy_variations["BASIC_TEMPERATE"].accept_cargos_with_input_ratios = [
     ("LVST", 6)
 ]
 
-industry.economy_variations["BASIC_TROPIC"].enabled = True
+industry.enable_in_economy("BASIC_TROPIC")
 industry.economy_variations["BASIC_TROPIC"].accept_cargos_with_input_ratios = [
     ("LVST", 6)
 ]
@@ -29,11 +29,11 @@ industry.economy_variations["BASIC_TROPIC"].accept_cargos_with_input_ratios = [
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('LVST', 6), ('MNSP', 1), ('ENUM', 1)]
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
     ("LVST", 6)
 ]
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("LVST", 6),
     ("PACK", 2),

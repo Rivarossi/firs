@@ -14,7 +14,7 @@ industry = IndustrySecondary(
     fund_cost_multiplier="170",
 )
 
-# industry.economy_variations['MILD_MILD_WEST'].enabled = True
+# industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="civil_explosives_facility_tile_1",

@@ -22,15 +22,15 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
-industry.economy_variations["BASIC_TROPIC"].enabled = True
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy("BASIC_ARCTIC")
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('FISH', 6), ('MNSP', 1), ('ENUM', 1)]
 
 # industry.economy_variations['IN_A_HOT_COUNTRY'].enabled = True
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="fishing_harbour_tile_1",

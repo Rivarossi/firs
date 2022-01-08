@@ -14,12 +14,12 @@ industry = IndustrySecondary(
 )
 
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 industry.economy_variations["BASIC_TEMPERATE"].intro_year = 1800
 # use the simpler name in Basic Temperate to aid players new to FIRS
 industry.economy_variations["BASIC_TEMPERATE"].name = "string(STR_IND_STEEL_MILL)"
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("IORE", 3),
     ("COKE", 3),

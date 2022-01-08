@@ -18,7 +18,7 @@ industry = IndustrySecondary(
     fund_cost_multiplier="145",
 )
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations[
     "STEELTOWN"
 ].prob_in_game = "1"  # low chance of build during gameplay

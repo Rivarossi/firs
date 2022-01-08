@@ -15,7 +15,7 @@ industry = IndustryPrimaryNoSupplies(
     fund_cost_multiplier="45",
 )
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 
 industry.add_tile(
     id="cryo_plant_tile_1",

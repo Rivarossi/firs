@@ -14,8 +14,8 @@ industry = IndustryPrimaryExtractive(
 )
 
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations["STEELTOWN"].prob_map_gen = "10"
 
 industry.add_tile(

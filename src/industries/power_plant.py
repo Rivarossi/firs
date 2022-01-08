@@ -17,7 +17,7 @@ industry = IndustryTertiary(
 )
 
 
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_ARCTIC")
 industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = ["PEAT"]
 
 industry.add_tile(

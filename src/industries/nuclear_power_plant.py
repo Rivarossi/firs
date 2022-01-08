@@ -20,7 +20,7 @@ industry = IndustryPrimaryPort(
 )
 
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="nuclear_power_plant_tile_1",

@@ -13,8 +13,8 @@ industry = IndustryPrimaryExtractive(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["BASIC_TROPIC"].enabled = True
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("BASIC_TROPIC")
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 
 industry.add_tile(
     id="oil_wells_tile_1",

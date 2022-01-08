@@ -14,7 +14,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations["STEELTOWN"].accept_cargos_with_input_ratios = [
     ("IORE", 3),
     ("COKE", 3),

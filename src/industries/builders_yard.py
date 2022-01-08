@@ -17,7 +17,7 @@ industry = IndustryTertiary(
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations["STEELTOWN"].prob_in_game = "6"
 industry.economy_variations["STEELTOWN"].prob_map_gen = "9"
 industry.economy_variations["STEELTOWN"].accept_cargo_types = [
@@ -30,10 +30,10 @@ industry.economy_variations["STEELTOWN"].accept_cargo_types = [
     "GLAS",
 ]
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].prob_map_gen = "14"
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargo_types = ['CMNT', 'WDPR']
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = [
     "CMNT",
     "STSE",

@@ -14,7 +14,7 @@ industry = IndustrySecondary(
     graphics_change_dates=[1942, 1980],
 )
 
-# industry.economy_variations['MILD_MILD_WEST'].enabled = True
+# industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="aluminium_plant_tile_1",

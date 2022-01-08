@@ -20,9 +20,9 @@ industry = IndustryPrimaryOrganic(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="dairy_farm_tile_1",

@@ -18,9 +18,9 @@ industry = IndustrySecondary(
     fund_cost_multiplier="65",
 )
 
-industry.economy_variations["BASIC_TROPIC"].enabled = True
+industry.enable_in_economy("BASIC_TROPIC")
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
     ("NUTS", 6),
     ("FRUT", 6),

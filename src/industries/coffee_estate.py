@@ -15,8 +15,8 @@ industry = IndustryPrimaryOrganic(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
-industry.economy_variations["BASIC_TROPIC"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
+industry.enable_in_economy("BASIC_TROPIC")
 industry.economy_variations["BASIC_TROPIC"].prod_cargo_types_with_multipliers = [
     ("JAVA", 9),
     ("FRUT", 9),

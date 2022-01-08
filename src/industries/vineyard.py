@@ -16,7 +16,7 @@ industry = IndustryPrimaryOrganic(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["BASIC_TROPIC"].enabled = True
+industry.enable_in_economy("BASIC_TROPIC")
 
 industry.add_tile(
     id="vineyard_tile_1",

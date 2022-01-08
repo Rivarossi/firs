@@ -14,7 +14,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 industry.economy_variations["BASIC_TEMPERATE"].accept_cargos_with_input_ratios = [
     ("STEL", 6),
     ("RFPR", 2),

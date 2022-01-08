@@ -19,7 +19,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations[
     "STEELTOWN"
 ].prob_in_game = "0"  # do not build during gameplay

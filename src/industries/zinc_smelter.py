@@ -23,7 +23,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(
     id="zinc_smelter_tile_1",

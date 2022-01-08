@@ -16,7 +16,7 @@ industry = IndustryPrimaryPort(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargo_types = [
     "DIAM",
     "JAVA",

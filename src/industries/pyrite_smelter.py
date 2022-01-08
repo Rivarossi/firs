@@ -19,7 +19,7 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.economy_variations["BASIC_ARCTIC"].enabled = True
+industry.enable_in_economy("BASIC_ARCTIC")
 
 industry.add_tile(
     id="pyrite_smelter_tile_1",

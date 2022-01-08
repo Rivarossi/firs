@@ -15,7 +15,7 @@ industry = IndustryPrimaryOrganic(
     override_default_construction_states=True,
 )
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multipliers = [
     ("RUBR", 16)
 ]

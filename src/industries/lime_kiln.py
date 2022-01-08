@@ -25,12 +25,12 @@ industry = IndustrySecondary(
 )
 
 # industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
-industry.economy_variations["STEELTOWN"].enabled = True
+industry.enable_in_economy("STEELTOWN")
 industry.economy_variations[
     "STEELTOWN"
 ].prob_in_game = "1"  # low probability of build during gameplay
 
-industry.economy_variations["MILD_MILD_WEST"].enabled = True
+industry.enable_in_economy("MILD_MILD_WEST")
 industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
     ("LIME", 4),
     ("PETR", 4),

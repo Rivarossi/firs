@@ -15,7 +15,7 @@ industry = IndustryPrimaryExtractive(
     graphics_change_dates=[1906, 1945],
 )
 
-industry.economy_variations["BASIC_TEMPERATE"].enabled = True
+industry.enable_in_economy("BASIC_TEMPERATE")
 industry.economy_variations["BASIC_TEMPERATE"].prod_cargo_types_with_multipliers = [
     ("SAND", 17)
 ]

@@ -17,7 +17,7 @@ industry = IndustryTertiary(
     fund_cost_multiplier="15",
 )
 
-industry.economy_variations["IN_A_HOT_COUNTRY"].enabled = True
+industry.enable_in_economy("IN_A_HOT_COUNTRY")
 industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargo_types = ["GOOD", "BDMT"]
 
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].enabled = True
