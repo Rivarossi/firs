@@ -1,10 +1,11 @@
 registered_industries = []
 
 # keep these alphabetised for ease of maintaining
-
+"""
 from industries import aluminium_plant
 
 aluminium_plant.industry.register()
+"""
 
 from industries import ammonia_plant
 
@@ -72,12 +73,15 @@ from industries import cider_mill
 
 cider_mill.industry.register()
 
+"""
 from industries import civil_explosives_facility
 
 civil_explosives_facility.industry.register()
+"""
 
 """
 from industries import chromite_mine
+
 chromite_mine.industry.register()
 """
 

@@ -17,9 +17,11 @@ from cargos import alloy_steel
 
 alloy_steel.cargo.register()
 
+"""
 from cargos import aluminia
 
 aluminia.cargo.register()
+"""
 
 from cargos import aluminium
 
@@ -212,9 +214,11 @@ from cargos import grain
 
 grain.cargo.register()
 
+"""
 from cargos import hydrochloric_acid
 
 hydrochloric_acid.cargo.register()
+"""
 
 from cargos import iron_ore
 
@@ -261,9 +265,11 @@ from cargos import metal
 metal.cargo.register()
 """
 
+"""
 from cargos import methanol
 
 methanol.cargo.register()
+"""
 
 from cargos import milk
 
@@ -287,9 +293,11 @@ from cargos import nitrates
 
 nitrates.cargo.register()
 
+"""
 from cargos import nitric_acid
 
 nitric_acid.cargo.register()
+"""
 
 from cargos import nuclear_fuel
 
