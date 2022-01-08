@@ -2,7 +2,7 @@ from industry import IndustryPrimaryExtractive, TileLocationChecks
 
 industry = IndustryPrimaryExtractive(
     id="phosphate_mine",
-    prod_cargo_types_with_multipliers=[("PHOS", 16)],
+    prod_cargo_types_with_multipliers=[],
     prob_in_game="4",
     prob_map_gen="7",
     map_colour="45",
@@ -24,7 +24,9 @@ industry.enable_in_economy(
 )
 industry.enable_in_economy(
     "BASIC_ARCTIC",
-    prod_cargo_types_with_multipliers=[("PHOS", 16)],
+    prod_cargo_types_with_multipliers=[
+        ("PHOS", 16),
+    ],
 )
 
 # 2 tiles for this industry: pit outer tile cannot be on slopes; pit inner tiles and processor tiles can be

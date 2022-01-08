@@ -2,8 +2,13 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="phosphoric_acid_plant",
-    accept_cargos_with_input_ratios=[("PHOS", 4), ("SUAC", 4)],
-    prod_cargo_types_with_output_ratios=[("PHAC", 4)],
+    accept_cargos_with_input_ratios=[
+        ("PHOS", 4),
+        ("SUAC", 4),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("PHAC", 4),
+    ],
     combined_cargos_boost_prod=True,
     prob_in_game="3",
     prob_map_gen="5",

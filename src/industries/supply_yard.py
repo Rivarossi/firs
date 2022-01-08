@@ -3,7 +3,7 @@ from industry import IndustrySecondary, TileLocationChecks
 industry = IndustrySecondary(
     id="supply_yard",
     accept_cargos_with_input_ratios=[],
-    prod_cargo_types_with_output_ratios=[("ENSP", 4), ("FMSP", 4)],
+    prod_cargo_types_with_output_ratios=[],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="143",
@@ -21,6 +21,10 @@ industry.enable_in_economy(
         ("BDMT", 8),
         ("PETR", 8),
         ("GOOD", 8),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("ENSP", 4),
+        ("FMSP", 4),
     ],
 )
 # ['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('CMNT', 8), ('PETR', 8), ('VEHI', 8), ('BOOM', 8), ('WDPR', 8)]

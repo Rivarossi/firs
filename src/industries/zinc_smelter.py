@@ -2,8 +2,14 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="zinc_smelter",
-    accept_cargos_with_input_ratios=[("ZORE", 4), ("COKE", 4)],
-    prod_cargo_types_with_output_ratios=[("ZINC", 4), ("SUAC", 4)],
+    accept_cargos_with_input_ratios=[
+        ("ZORE", 4),
+        ("COKE", 4),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("ZINC", 4),
+        ("SUAC", 4),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="19",

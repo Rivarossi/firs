@@ -2,7 +2,7 @@ from industry import IndustryTertiary, TileLocationChecks
 
 industry = IndustryTertiary(
     id="power_plant",
-    accept_cargo_types=["COAL"],
+    accept_cargo_types=[],
     prod_cargo_types=[],
     prob_in_game="3",
     prob_map_gen="5",

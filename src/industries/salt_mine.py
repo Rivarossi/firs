@@ -2,7 +2,10 @@ from industry import IndustryPrimaryExtractive, TileLocationChecks
 
 industry = IndustryPrimaryExtractive(
     id="salt_mine",
-    prod_cargo_types_with_multipliers=[("SALT", 22), ("ENUM", 4)],
+    prod_cargo_types_with_multipliers=[
+        ("SALT", 22),
+        ("ENUM", 4),
+    ],
     prob_in_game="4",
     prob_map_gen="7",
     map_colour="169",

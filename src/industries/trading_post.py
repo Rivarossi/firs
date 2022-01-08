@@ -2,8 +2,15 @@ from industry import IndustryPrimaryPort, TileLocationChecks
 
 industry = IndustryPrimaryPort(
     id="trading_post",
-    accept_cargo_types=["FOOD", "FRUT", "BEER"],
-    prod_cargo_types_with_multipliers=[],
+    accept_cargo_types=[
+        "DIAM",
+        "JAVA",
+        "RUBR",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("ENSP", 7),
+        ("FMSP", 6),
+    ],
     prob_in_game="2",
     prob_map_gen="6",
     map_colour="37",
@@ -18,15 +25,6 @@ industry = IndustryPrimaryPort(
 
 industry.enable_in_economy(
     "IN_A_HOT_COUNTRY",
-    accept_cargo_types=[
-        "DIAM",
-        "JAVA",
-        "RUBR",
-    ],
-    prod_cargo_types_with_multipliers=[
-        ("ENSP", 7),
-        ("FMSP", 6),
-    ],
 )
 
 industry.add_tile(

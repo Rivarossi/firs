@@ -2,8 +2,13 @@ from industry import IndustrySecondary, TileLocationChecks
 
 industry = IndustrySecondary(
     id="pyrite_smelter",
-    accept_cargos_with_input_ratios=[("PORE", 8)],
-    prod_cargo_types_with_output_ratios=[("ZINC", 4), ("SULP", 4)],
+    accept_cargos_with_input_ratios=[
+        ("PORE", 8),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("ZINC", 4),
+        ("SULP", 4),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     map_colour="19",

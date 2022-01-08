@@ -6,7 +6,9 @@ from industry import IndustryPrimaryPort, TileLocationChecks
 industry = IndustryPrimaryPort(
     id="nuclear_power_plant",
     accept_cargo_types=["NUKE"],
-    prod_cargo_types_with_multipliers=[("NWST", 2)],
+    prod_cargo_types_with_multipliers=[
+        ("NWST", 2),
+    ],
     prob_in_game="3",
     prob_map_gen="5",
     prod_multiplier="[0, 0]",
