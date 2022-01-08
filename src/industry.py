@@ -1138,6 +1138,7 @@ class IndustryProperties(object):
         self.remove_cost_multiplier = kwargs.get("remove_cost_multiplier", "0")
         self._special_flags = kwargs.get("special_flags", [])
         # not nml properties
+        self.enabled = kwargs.get("enabled", False)
         self.accept_cargo_types = kwargs.get("accept_cargo_types", None)
         self.accept_cargos_with_input_ratios = kwargs.get(
             "accept_cargos_with_input_ratios", None
@@ -1149,7 +1150,6 @@ class IndustryProperties(object):
             "prod_cargo_types_with_output_ratios", None
         )
         self.prod_multiplier = kwargs.get("prod_multiplier", None)
-        self.enabled = kwargs.get("enabled", False)
         self.override_default_construction_states = kwargs.get(
             "override_default_construction_states", False
         )
@@ -1203,11 +1203,9 @@ class Industry(object):
         registered_industries.append(self)
 
     def enable_in_economy(self, economy_id, **kwargs):
-        print(economy_id, kwargs, self.id)
         self.economy_variations[economy_id].enabled = True
         for kwarg_name, kwarg_value in kwargs.items():
             if hasattr(self.economy_variations[economy_id], kwarg_name):
-                print(kwarg_name, kwarg_value)
                 setattr(self.economy_variations[economy_id], kwarg_name, kwarg_value)
             else:
                 raise NameError("unknown economy variation kwarg '" + kwarg_name + "' declared by " + self.id)
