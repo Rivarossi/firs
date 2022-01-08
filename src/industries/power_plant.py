@@ -17,8 +17,10 @@ industry = IndustryTertiary(
 )
 
 
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = ["PEAT"]
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+    accept_cargo_types=["PEAT"],
+)
 
 industry.add_tile(
     id="power_plant_tile_1",

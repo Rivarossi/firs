@@ -19,10 +19,10 @@ industry = IndustrySecondary(
 )
 
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations[
-    "STEELTOWN"
-].prob_in_game = "0"  # do not build during gameplay
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_in_game="0",  # do not build during gameplay
+)
 
 industry.add_tile(
     id="wire_and_section_mill_tile_1",

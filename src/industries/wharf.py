@@ -16,48 +16,54 @@ industry = IndustryPrimaryPort(
     override_default_construction_states=True,
 )
 
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = [
-    "BOOM",
-    "PEAT",
-    "WDPR",
-]
-industry.economy_variations["BASIC_ARCTIC"].prod_cargo_types_with_multipliers = [
-    ("POTA", 19),
-    ("ENSP", 9),
-    ("FMSP", 9),
-]
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+    accept_cargo_types=[
+        "BOOM",
+        "PEAT",
+        "WDPR",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("POTA", 19),
+        ("ENSP", 9),
+        ("FMSP", 9),
+    ],
+)
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_types = ['POWR', 'RUBR', 'BOOM']
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('COPR', 10), ('VEHI', 14), ('ALUM', 12), ('WDPR', 14), ('STEL', 14)]
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].accept_cargo_types = [
-    "ZINC",
-]
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
-    ("ZORE", 16),
-    ("PULP", 16),
-    ("POTA", 16),
-    ("PHOS", 16),
-]
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargo_types=[
+        "ZINC",
+    ],
+    prod_cargo_types_with_multipliers=[
+        ("ZORE", 16),
+        ("PULP", 16),
+        ("POTA", 16),
+        ("PHOS", 16),
+    ],
+)
 
 # in Steeltown, there is a deliberate feedback loop with ZINC -> PIPE -> wharf, same for SOAP
 # this is to allow an easy kickstart of ENSP at the wharf, when all other chains are so tightly connected
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].accept_cargo_types = [
-    "STSE",
-    "PIPE",
-    "CMNT",
-    "LYE_",
-]  # FOOD was tried, but results in more complex cargo flow diagram
-industry.economy_variations["STEELTOWN"].prod_cargo_types_with_multipliers = [
-    ("ENSP", 12),
-    ("ZINC", 16),
-    ("POWR", 14),
-    ("COAT", 10),
-    ("SOAP", 10),
-]
+industry.enable_in_economy(
+    "STEELTOWN",
+    accept_cargo_types=[
+        "STSE",
+        "PIPE",
+        "CMNT",
+        "LYE_",
+    ],  # FOOD was tried, but results in more complex cargo flow diagram
+    prod_cargo_types_with_multipliers=[
+        ("ENSP", 12),
+        ("ZINC", 16),
+        ("POWR", 14),
+        ("COAT", 10),
+        ("SOAP", 10),
+    ],
+)
 
 industry.add_tile(
     id="wharf_tile_1",

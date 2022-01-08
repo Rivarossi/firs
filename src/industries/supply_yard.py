@@ -15,22 +15,24 @@ industry = IndustrySecondary(
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('VEHI', 8), ('PETR', 8)]
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("BDMT", 8),
-    ("PETR", 8),
-    ("GOOD", 8),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargos_with_input_ratios=[
+        ("BDMT", 8),
+        ("PETR", 8),
+        ("GOOD", 8),
+    ],
+)
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('CMNT', 8), ('PETR', 8), ('VEHI', 8), ('BOOM', 8), ('WDPR', 8)]
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
-    ("CMNT", 8),
-    ("VEHI", 8),
-    ("BOOM", 8),
-]
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
-    ("ENSP", 8)
-]
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargos_with_input_ratios=[
+        ("CMNT", 8),
+        ("VEHI", 8),
+        ("BOOM", 8),
+    ],
+    prod_cargo_types_with_output_ratios=[("ENSP", 8)],
+)
 
 industry.add_tile(
     id="supply_yard_tile_1",

@@ -24,17 +24,19 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy("BASIC_TROPIC")
 
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.economy_variations["BASIC_ARCTIC"].accept_cargos_with_input_ratios = [
-    ("SULP", 2),
-    ("PHOS", 2),
-    ("NH3_", 2),
-    ("POTA", 2),
-]
-industry.economy_variations["BASIC_ARCTIC"].prod_cargo_types_with_output_ratios = [
-    ("FERT", 4),
-    ("BOOM", 4),
-]
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+    accept_cargos_with_input_ratios=[
+        ("SULP", 2),
+        ("PHOS", 2),
+        ("NH3_", 2),
+        ("POTA", 2),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("FERT", 4),
+        ("BOOM", 4),
+    ],
+)
 
 # should be Specialty Chemicals Plant, and should also accept ACID??
 # also this should not be forced to be near port in BLTC

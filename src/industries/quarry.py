@@ -17,21 +17,27 @@ industry = IndustryPrimaryExtractive(
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].prod_cargo_types_with_multipliers = [
-    ("SAND", 14),
-    ("LIME", 14),
-]
+industry.enable_in_economy(
+    "STEELTOWN",
+    prod_cargo_types_with_multipliers=[
+        ("SAND", 14),
+        ("LIME", 14),
+    ],
+)
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multipliers = [
-    ("SAND", 14),
-    ("GRVL", 14),
-]
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
-    ("LIME", 16),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    prod_cargo_types_with_multipliers=[
+        ("SAND", 14),
+        ("GRVL", 14),
+    ],
+)
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    prod_cargo_types_with_multipliers=[
+        ("LIME", 16),
+    ],
+)
 
 # 2 tiles for this industry: pit outer tile cannot be on slopes; pit inner tiles and processor tiles can be
 # cases for both tiles ensure that tiles can only be built at same height as north tile
