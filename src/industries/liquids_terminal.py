@@ -18,8 +18,8 @@ industry = IndustryPrimaryPort(
 
 """
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_types = []
-industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('OIL_', 20)]
+accept_cargo_types = []
+prod_cargo_types_with_multipliers = [('OIL_', 20)]
 """
 
 industry.enable_in_economy(
@@ -30,7 +30,7 @@ industry.enable_in_economy(
         ("PETR", 7),
     ],
 )
-# industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('NH3_', 16)]
+# ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('NH3_', 16)]
 
 industry.enable_in_economy(
     "MILD_MILD_WEST",

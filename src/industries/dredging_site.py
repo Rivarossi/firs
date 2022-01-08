@@ -21,7 +21,7 @@ industry.enable_in_economy(
 )
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('SAND', 17)]
+###['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('SAND', 17)]
 
 industry.add_tile(
     id="dredging_site_tile_1",

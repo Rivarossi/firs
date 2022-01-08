@@ -22,7 +22,7 @@ industry.enable_in_economy(
     prob_map_gen="10",
 )
 
-# industry.economy_variations['IN_A_HOT_COUNTRY'].enabled = True
+# ['IN_A_HOT_COUNTRY'].enabled = True
 
 industry.add_tile(
     id="coal_mine_tile_1",

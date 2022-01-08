@@ -28,7 +28,7 @@ industry.enable_in_economy("BASIC_TROPIC")
 industry.enable_in_economy("BASIC_ARCTIC")
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-# industry.economy_variations['IN_A_HOT_COUNTRY'].enabled = True
+# ['IN_A_HOT_COUNTRY'].enabled = True
 industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(

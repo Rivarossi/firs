@@ -35,9 +35,9 @@ industry.enable_in_economy(
     prod_cargo_types_with_output_ratios=[("BDMT", 8)],
 )
 
+# ['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('COAL', 2), ('CLAY', 2), ('GRVL', 4)]
+# ['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('CMNT', 8)]
 
-# industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargos_with_input_ratios = [('COAL', 2), ('CLAY', 2), ('GRVL', 4)]
-# industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_output_ratios = [('CMNT', 8)]
 industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(

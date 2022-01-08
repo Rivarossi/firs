@@ -24,7 +24,7 @@ industry.enable_in_economy(
 )
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('MILK', 6), ('MNSP', 2)]
+###['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('MILK', 6), ('MNSP', 2)]
 industry.enable_in_economy(
     "MILD_MILD_WEST",
     accept_cargos_with_input_ratios=[

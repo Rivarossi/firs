@@ -31,8 +31,8 @@ industry.enable_in_economy(
 )
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_types = ['POWR', 'RUBR', 'BOOM']
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('COPR', 10), ('VEHI', 14), ('ALUM', 12), ('WDPR', 14), ('STEL', 14)]
+###['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_types = ['POWR', 'RUBR', 'BOOM']
+###['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('COPR', 10), ('VEHI', 14), ('ALUM', 12), ('WDPR', 14), ('STEL', 14)]
 industry.enable_in_economy(
     "MILD_MILD_WEST",
     accept_cargo_types=[
