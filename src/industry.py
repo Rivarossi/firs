@@ -1177,10 +1177,10 @@ class Industry(object):
         self.industry_layouts = []
         self.default_industry_properties = IndustryProperties(**kwargs)
         # economy variation structure is provisioned containing all economies, but with empty industry config, industry is then enabled for economies later
+        # this could be changed so that economies are only provisioned by enable_in_economy(), but it's easy to ensure economy looks up don't fail this way
         self.economy_variations = {}
         for economy in registered_economies:
             self.add_economy_variation(economy)
-            utils.echo_message('legacy economy added for ' + self.id)
         self.template = kwargs.get(
             "template", None
         )  # template will be set by subcass, and/or by individual industry instances
