@@ -1205,8 +1205,12 @@ class Industry(object):
     def enable_in_economy(self, economy_id, **kwargs):
         print(economy_id, kwargs, self.id)
         self.economy_variations[economy_id].enabled = True
-        for kwarg in kwargs:
-            print(kwarg)
+        for kwarg_name, kwarg_value in kwargs.items():
+            if hasattr(self.economy_variations[economy_id], kwarg_name):
+                print(kwarg_name, kwarg_value)
+                setattr(self.economy_variations[economy_id], kwarg_name, kwarg_value)
+            else:
+                raise NameError("unknown economy variation kwarg '" + kwarg_name + "' declared by " + self.id)
 
     def add_tile(self, *args, **kwargs):
         new_tile = Tile(self.id, *args, **kwargs)
