@@ -14,20 +14,21 @@ industry = IndustrySecondary(
 )
 
 
-industry.enable_in_economy("BASIC_TEMPERATE")
-industry.economy_variations["BASIC_TEMPERATE"].intro_year = 1800
-# use the simpler name in Basic Temperate to aid players new to FIRS
-industry.economy_variations["BASIC_TEMPERATE"].name = "string(STR_IND_STEEL_MILL)"
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+    intro_year=1800,
+    name="string(STR_IND_STEEL_MILL)",  # use the simpler name in Basic Temperate to aid players new to FIRS
+)
 
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
-    ("IORE", 3),
-    ("COKE", 3),
-    ("LIME", 2),
-]
-industry.economy_variations[
-    "MILD_MILD_WEST"
-].prob_in_game = "0"  # do not build during gameplay
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargos_with_input_ratios=[
+        ("IORE", 3),
+        ("COKE", 3),
+        ("LIME", 2),
+    ],
+    prob_in_game="0",  # do not build during gameplay
+)
 
 industry.add_tile(
     id="integrated_steel_mill_tile_1",

@@ -19,17 +19,22 @@ industry = IndustryPrimaryOrganic(
     graphics_change_dates=[1928],
 )
 
-industry.enable_in_economy("BASIC_TROPIC")
-industry.economy_variations["BASIC_TROPIC"].prod_cargo_types_with_multipliers = [
-    ("GRAI", 14),
-    ("BEAN", 14),
-]
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+    prod_cargo_types_with_multipliers=[
+        ("GRAI", 14),
+        ("BEAN", 14),
+    ],
+)
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multipliers = [
-    ("CASS", 14),
-    ("NUTS", 14),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    prod_cargo_types_with_multipliers=[
+        ("CASS", 14),
+        ("NUTS", 14),
+    ],
+)
+
 
 industry.add_tile(
     id="arable_farm_tile_1",

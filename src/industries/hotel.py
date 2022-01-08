@@ -19,11 +19,13 @@ industry.enable_in_economy("BASIC_TEMPERATE")
 
 industry.enable_in_economy("BASIC_TROPIC")
 
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = [
-    "FOOD",
-    "PASS",
-]
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+    accept_cargo_types=[
+        "FOOD",
+        "PASS",
+    ],
+)
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 

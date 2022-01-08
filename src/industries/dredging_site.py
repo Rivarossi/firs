@@ -15,10 +15,10 @@ industry = IndustryPrimaryExtractive(
     graphics_change_dates=[1906, 1945],
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
-industry.economy_variations["BASIC_TEMPERATE"].prod_cargo_types_with_multipliers = [
-    ("SAND", 17)
-]
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+    prod_cargo_types_with_multipliers=[("SAND", 17)],
+)
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 ###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('SAND', 17)]

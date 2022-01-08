@@ -17,11 +17,13 @@ industry = IndustryPrimaryOrganic(
 )
 
 industry.enable_in_economy("BASIC_TEMPERATE")
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
-    ("AAPL", 11),
-    ("LVST", 8),
-]
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    prod_cargo_types_with_multipliers=[
+        ("AAPL", 11),
+        ("LVST", 8),
+    ],
+)
 
 industry.add_tile(
     id="orchard_piggery_tile_1",

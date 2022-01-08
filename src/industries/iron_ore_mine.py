@@ -15,8 +15,10 @@ industry = IndustryPrimaryExtractive(
 
 
 industry.enable_in_economy("BASIC_TEMPERATE")
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].prob_map_gen = "10"
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_map_gen="10",
+)
 
 industry.add_tile(
     id="iron_ore_mine_tile_1",

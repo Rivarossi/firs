@@ -16,14 +16,14 @@ industry = IndustrySecondary(
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("WDPR", 6),
-    ("RFPR", 2),
-]
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_output_ratios = [
-    ("BDMT", 8)
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    prod_cargo_types_with_output_ratios=[("BDMT", 8)],
+    accept_cargos_with_input_ratios=[
+        ("WDPR", 6),
+        ("RFPR", 2),
+    ],
+)
 
 # non-animated tile, allowed on slopes
 industry.add_tile(

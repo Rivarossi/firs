@@ -22,18 +22,23 @@ industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargo_type
 industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].prod_cargo_types_with_multipliers = [('OIL_', 20)]
 """
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargo_types = ["EOIL", "OIL_"]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargo_types=["EOIL", "OIL_"],
+    prod_cargo_types_with_multipliers=[
+        ("RFPR", 11),
+        ("PETR", 7),
+    ],
+)
 # industry.economy_variations['IN_A_HOT_COUNTRY'].prod_cargo_types_with_multipliers = [('NH3_', 16)]
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_multipliers = [
-    ("RFPR", 11),
-    ("PETR", 7),
-]
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_multipliers = [
-    ("OIL_", 16),
-    ("ACAC", 12),
-]
+
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    prod_cargo_types_with_multipliers=[
+        ("OIL_", 16),
+        ("ACAC", 12),
+    ],
+)
 
 industry.add_tile(
     id="liquids_terminal_tile_1",

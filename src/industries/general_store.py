@@ -19,22 +19,28 @@ industry = IndustryTertiary(
 
 industry.enable_in_economy("BASIC_TEMPERATE")
 
-industry.enable_in_economy("BASIC_ARCTIC")
-industry.economy_variations["BASIC_ARCTIC"].accept_cargo_types = [
-    "FOOD",
-]
+industry.enable_in_economy(
+    "BASIC_ARCTIC",
+    accept_cargo_types=[
+        "FOOD",
+    ],
+)
 
 industry.enable_in_economy("BASIC_TROPIC")
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].prob_map_gen = "14"
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    prob_map_gen="14",
+)
 # industry.economy_variations['IN_A_HOT_COUNTRY'].accept_cargo_types = ['FOOD', 'GOOD', 'BEER', 'TEXT']
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].accept_cargo_types = [
-    "FOOD",
-]
+industry.enable_in_economy(
+    "STEELTOWN",
+    accept_cargo_types=[
+        "FOOD",
+    ],
+)
 
 industry.add_tile(
     id="general_store_tile_1",

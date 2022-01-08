@@ -24,10 +24,10 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations[
-    "STEELTOWN"
-].prob_in_game = "0"  # do not build during gameplay
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_in_game="0",  # do not build during gameplay
+)
 
 industry.add_tile(
     id="basic_oxygen_furnace_tile_1",

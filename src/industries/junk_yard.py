@@ -17,8 +17,10 @@ industry = IndustryTownProducerPopulationDependent(
 
 industry.enable_in_economy("BASIC_TEMPERATE")
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].prob_map_gen = "14"
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_map_gen="14",
+)
 industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(

@@ -15,14 +15,15 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
-###industry.economy_variations['BETTER_LIVING_THROUGH_CHEMISTRY'].accept_cargos_with_input_ratios = [('GRAI', 4), ('MNSP', 4)]
+###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY, accept_cargos_with_input_ratios = [('GRAI', 4), ('MNSP', 4)],)
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("FRUT", 4),
-    ("MAIZ", 4),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargos_with_input_ratios=[
+        ("FRUT", 4),
+        ("MAIZ", 4),
+    ],
+)
 
 industry.add_tile(
     id="brewery_tile_1",

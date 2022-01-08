@@ -20,15 +20,17 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy("BASIC_TROPIC")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("NUTS", 6),
-    ("FRUT", 6),
-]
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_output_ratios = [
-    ("EOIL", 4),
-    ("FOOD", 4),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargos_with_input_ratios=[
+        ("NUTS", 6),
+        ("FRUT", 6),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("EOIL", 4),
+        ("FOOD", 4),
+    ],
+)
 
 industry.add_tile(
     id="food_processor_tile_1",

@@ -19,18 +19,20 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=2,
 )
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations[
-    "STEELTOWN"
-].prob_in_game = "1"  # low chance of build during gameplay
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_in_game="1",  # low chance of build during gameplay
+)
 
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].name = "string(STR_IND_STEEL_MINIMILL)"
-industry.economy_variations["MILD_MILD_WEST"].prod_cargo_types_with_output_ratios = [
-    ("STSH", 3),
-    ("STWR", 3),
-    ("SLAG", 2),
-]
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    name="string(STR_IND_STEEL_MINIMILL)",
+    prod_cargo_types_with_output_ratios=[
+        ("STSH", 3),
+        ("STWR", 3),
+        ("SLAG", 2),
+    ],
+)
 
 industry.add_tile(
     id="electric_arc_furnace_tile_1",

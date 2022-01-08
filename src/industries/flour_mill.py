@@ -20,11 +20,13 @@ industry.economy_variations["BASIC_TROPIC"].accept_cargos_with_input_ratios = [
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("CASS", 6),
-    ("MAIZ", 6),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargos_with_input_ratios=[
+        ("CASS", 6),
+        ("MAIZ", 6),
+    ],
+)
 industry.enable_in_economy("MILD_MILD_WEST")
 
 industry.add_tile(

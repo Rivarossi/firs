@@ -14,35 +14,37 @@ industry = IndustrySecondary(
     fund_cost_multiplier="95",
 )
 
-industry.enable_in_economy("BASIC_TEMPERATE")
-industry.economy_variations["BASIC_TEMPERATE"].accept_cargos_with_input_ratios = [
-    ("SAND", 6),
-    ("RFPR", 2),
-]
-industry.economy_variations["BASIC_TEMPERATE"].prod_cargo_types_with_output_ratios = [
-    ("GOOD", 8)
-]
+industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+    accept_cargos_with_input_ratios=[
+        ("SAND", 6),
+        ("RFPR", 2),
+    ],
+    prod_cargo_types_with_output_ratios=[("GOOD", 8)],
+)
 
 ###industry.enable_in_economy("BETTER_LIVING_THROUGH_CHEMISTRY")
 
-industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.economy_variations["IN_A_HOT_COUNTRY"].accept_cargos_with_input_ratios = [
-    ("SAND", 6),
-    ("RFPR", 2),
-]
-industry.economy_variations["IN_A_HOT_COUNTRY"].prod_cargo_types_with_output_ratios = [
-    ("BDMT", 4),
-    ("GOOD", 4),
-]
+industry.enable_in_economy(
+    "IN_A_HOT_COUNTRY",
+    accept_cargos_with_input_ratios=[
+        ("SAND", 6),
+        ("RFPR", 2),
+    ],
+    prod_cargo_types_with_output_ratios=[
+        ("BDMT", 4),
+        ("GOOD", 4),
+    ],
+)
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations["STEELTOWN"].accept_cargos_with_input_ratios = [
-    ("SAND", 6),
-    ("SASH", 2),
-]  # no limestone or dolomite, too much detail
-industry.economy_variations[
-    "STEELTOWN"
-].prob_in_game = "1"  # low probability of build during gameplay
+industry.enable_in_economy(
+    "STEELTOWN",
+    accept_cargos_with_input_ratios=[
+        ("SAND", 6),
+        ("SASH", 2),
+    ],  # no limestone or dolomite, too much detail
+    prob_in_game="1",  # low probability of build during gameplay
+)
 
 industry.add_tile(
     id="glass_works_tile_1",

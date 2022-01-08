@@ -16,11 +16,13 @@ industry = IndustryPrimaryOrganic(
 )
 
 industry.enable_in_economy("IN_A_HOT_COUNTRY")
-industry.enable_in_economy("BASIC_TROPIC")
-industry.economy_variations["BASIC_TROPIC"].prod_cargo_types_with_multipliers = [
-    ("JAVA", 9),
-    ("FRUT", 9),
-]
+industry.enable_in_economy(
+    "BASIC_TROPIC",
+    prod_cargo_types_with_multipliers=[
+        ("JAVA", 9),
+        ("FRUT", 9),
+    ],
+)
 
 industry.add_tile(
     id="coffee_estate_tile_1",

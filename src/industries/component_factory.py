@@ -19,10 +19,10 @@ industry = IndustrySecondary(
     pollution_and_squalor_factor=1,
 )
 
-industry.enable_in_economy("STEELTOWN")
-industry.economy_variations[
-    "STEELTOWN"
-].prob_in_game = "1"  # low chance of build during gameplay
+industry.enable_in_economy(
+    "STEELTOWN",
+    prob_in_game="1",  # low chance of build during gameplay
+)
 
 """
 industry.economy_variations['IN_A_HOT_COUNTRY'].enabled = True

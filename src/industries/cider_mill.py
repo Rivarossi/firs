@@ -19,12 +19,15 @@ industry = IndustrySecondary(
 )
 
 industry.enable_in_economy("BASIC_TEMPERATE")
-industry.enable_in_economy("MILD_MILD_WEST")
-industry.economy_variations["MILD_MILD_WEST"].accept_cargos_with_input_ratios = [
-    ("AAPL", 5),
-    ("PACK", 2),
-    ("ENUM", 1),
-]
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargos_with_input_ratios=[
+        ("AAPL", 5),
+        ("PACK", 2),
+        ("ENUM", 1),
+    ],
+)
+
 
 industry.add_tile(
     id="cider_mill_tile_1",
