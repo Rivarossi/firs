@@ -25,6 +25,7 @@ from perm_storage_mappings import register_perm_storage_mapping, get_perm_num
 from economies import registered_economies
 from industries import registered_industries
 
+
 def get_another_industry(id):
     # utility function so that we can provide numeric ids in nml output, rather than relying identifiers
     # this enables compiling single-industries without nml barfing on missing identifiers (in location checks and such)
@@ -33,8 +34,9 @@ def get_another_industry(id):
             return industry
     # if none found, that's an error, don't handle the error, just blow up
 
+
 class Tile(object):
-    """ Base class to hold industry tiles"""
+    """Base class to hold industry tiles"""
 
     def __init__(self, industry_id, id, **kwargs):
         self.id = id
@@ -98,7 +100,7 @@ class Tile(object):
 
 
 class TileLocationChecks(object):
-    """ Class to hold location checks for a tile """
+    """Class to hold location checks for a tile"""
 
     def __init__(self, **kwargs):
         self.always_allow_founder = kwargs.get(
@@ -178,7 +180,7 @@ class TileLocationChecks(object):
 
 
 class TileLocationCheck(object):
-    """ Sparse class to base TileLocationCheck subclasses on """
+    """Sparse class to base TileLocationCheck subclasses on"""
 
     @property
     def macro(self):
@@ -198,7 +200,7 @@ class TileLocationCheckDisallowSlopes(TileLocationCheck):
 
 
 class TileLocationCheckDisallowSteepSlopes(TileLocationCheck):
-    """ Prevent building on steep slopes (but not normal slopes) """
+    """Prevent building on steep slopes (but not normal slopes)"""
 
     def __init__(self):
         self.switch_result = None  # no default value for this check, it may not be the last check in a chain
@@ -234,7 +236,7 @@ class TileLocationCheckRequireEffectivelyFlat(TileLocationCheck):
 
 
 class TileLocationCheckRequireHousesNearby(TileLocationCheck):
-    """ Requires houses at offset x, y (to be fed by circular tile search) """
+    """Requires houses at offset x, y (to be fed by circular tile search)"""
 
     def __init__(self, search_points):
         self.switch_result = "return CB_RESULT_LOCATION_ALLOW"  # default result, value may also be id for next switch
@@ -244,7 +246,7 @@ class TileLocationCheckRequireHousesNearby(TileLocationCheck):
 
 
 class TileLocationCheckRequireRoadAdjacent(TileLocationCheck):
-    """ Requires road on adjacent tile(s), with configurable directions """
+    """Requires road on adjacent tile(s), with configurable directions"""
 
     def __init__(self):
         self.switch_result = "return CB_RESULT_LOCATION_ALLOW"  # default result, value may also be id for next switch
@@ -267,7 +269,7 @@ class TileLocationCheckRequireSlope(TileLocationCheck):
 
 
 class TileLocationCheckDisallowDesert(TileLocationCheck):
-    """ Prevent building on desert tiles """
+    """Prevent building on desert tiles"""
 
     def __init__(self):
         self.switch_result = None  # no default value for this check, it may not be the last check in a chain
@@ -276,7 +278,7 @@ class TileLocationCheckDisallowDesert(TileLocationCheck):
 
 
 class TileLocationCheckDisallowCoast(TileLocationCheck):
-    """ Prevent building on desert tiles """
+    """Prevent building on desert tiles"""
 
     def __init__(self):
         self.switch_result = None  # no default value for this check, it may not be the last check in a chain
@@ -285,7 +287,7 @@ class TileLocationCheckDisallowCoast(TileLocationCheck):
 
 
 class TileLocationCheckDisallowAboveSnowline(TileLocationCheck):
-    """ Prevent building above snowline """
+    """Prevent building above snowline"""
 
     def __init__(self):
         self.switch_result = None  # no default value for this check, it may not be the last check in a chain
@@ -297,7 +299,7 @@ class TileLocationCheckDisallowAboveSnowline(TileLocationCheck):
 
 
 class TileLocationCheckDisallowBelowSnowline(TileLocationCheck):
-    """ Prevent building above snowline """
+    """Prevent building above snowline"""
 
     def __init__(self):
         self.switch_result = None  # no default value for this check, it may not be the last check in a chain
@@ -355,7 +357,7 @@ class Sprite(object):
 
 
 class SmokeSprite(object):
-    """ Base class to handle smoke sprites (using smoke sprite numbers from a base set) """
+    """Base class to handle smoke sprites (using smoke sprite numbers from a base set)"""
 
     def __init__(
         self,
@@ -397,7 +399,7 @@ class SmokeSprite(object):
 
 
 class Spriteset(object):
-    """ Base class to hold industry spritesets """
+    """Base class to hold industry spritesets"""
 
     # !! arguably this should be two different classes, one for building/feature spritesets, and one for ground spritesets
     def __init__(
@@ -446,7 +448,7 @@ class Spriteset(object):
 
 
 class SpriteLayout(object):
-    """ Base class to hold spritelayouts for industry spritelayouts """
+    """Base class to hold spritelayouts for industry spritelayouts"""
 
     def __init__(
         self,
@@ -470,7 +472,7 @@ class SpriteLayout(object):
 
 
 class MagicSpritelayoutSlopeAwareTrees(object):
-    """ Occasionally we need magic.  If we're going magic, let's go full on magic.  This one makes 4 climate-aware trees on a slope-aware ground tile """
+    """Occasionally we need magic.  If we're going magic, let's go full on magic.  This one makes 4 climate-aware trees on a slope-aware ground tile"""
 
     # Class attributes eh?  Might as well, these aren't supposed to be mutable
 
@@ -783,7 +785,7 @@ class MagicSpritelayoutSlopeAwareTrees(object):
 
 
 class MagicTree(object):
-    """ Stubby class used in MagicSpriteLayoutSlopeAwareTrees; I just prefer object attribute access over an equivalent dict - Andy"""
+    """Stubby class used in MagicSpriteLayoutSlopeAwareTrees; I just prefer object attribute access over an equivalent dict - Andy"""
 
     def __init__(self, trees, offsets, tree_num):
         self.default = trees["default"][tree_num]
@@ -862,14 +864,14 @@ class MagicSpritelayoutHarbourCoastFoundations(object):
 
 
 class GraphicsSwitch(object):
-    """ base class for extra graphics switches """
+    """base class for extra graphics switches"""
 
     def __init__(self, id, **kwargs):
         self.id = id
 
 
 class GraphicsSwitchSlopes(GraphicsSwitch):
-    """ Class from which a slope-checking graphics switch can be generated, routing to appropriate spritelayout per slope type """
+    """Class from which a slope-checking graphics switch can be generated, routing to appropriate spritelayout per slope type"""
 
     def __init__(self, id, slope_spritelayout_mapping, default_result):
         super().__init__(id)
@@ -878,7 +880,7 @@ class GraphicsSwitchSlopes(GraphicsSwitch):
 
 
 class IndustryLayout(object):
-    """ Base class to hold industry layouts """
+    """Base class to hold industry layouts"""
 
     def __init__(self, id, layout):
         self.id = id
@@ -886,7 +888,7 @@ class IndustryLayout(object):
 
 
 class IndustryLocationChecks(object):
-    """ Class to hold location checks for an industry """
+    """Class to hold location checks for an industry"""
 
     def __init__(self, industry, location_args={}):
         self.industry = industry
@@ -895,7 +897,11 @@ class IndustryLocationChecks(object):
             "near_at_least_one_of_these_keystone_industries", None
         )
         if self.near_at_least_one_of_these_keystone_industries is not None:
-            utils.echo_message('near_at_least_one_of_these_keystone_industries set by ' + industry.id + ', should be in economy location checks only')
+            utils.echo_message(
+                "near_at_least_one_of_these_keystone_industries set by "
+                + industry.id
+                + ", should be in economy location checks only"
+            )
         self.require_cluster = location_args.get("require_cluster", None)
         self.require_town_industry_count = location_args.get(
             "require_town_industry_count", None
@@ -1004,18 +1010,14 @@ class IndustryLocationChecks(object):
 
 
 class IndustryLocationCheck(object):
-    """ sparse base class for industry location checks """
-
-    @property
-    def macro(self):
-        return templates["location_check_macros_industry.pynml"].macros[self.macro_name]
+    """sparse base class for industry location checks"""
 
     @property
     def procedure_name_and_params_as_nml_string(self):
         params_as_nml_string = ",".join([str(param) for param in self.params])
         return (
             "location_check_industry_"
-            + self.macro_name
+            + self.procedure_name
             + "("
             + params_as_nml_string
             + ")"
@@ -1023,7 +1025,7 @@ class IndustryLocationCheck(object):
 
 
 class IndustryLocationCheckTownIndustryCount(IndustryLocationCheck):
-    """ Require specific count of industry type in a town """
+    """Require specific count of industry type in a town"""
 
     def __init__(self, require_town_industry_count):
         # use the numeric_id so that we can do single-industry compiles without nml barfing on missing identifiers
@@ -1036,21 +1038,21 @@ class IndustryLocationCheckTownIndustryCount(IndustryLocationCheck):
             utils.echo_message(
                 "IndustryLocationCheckTownIndustryCount uses a hardcoded error string limiting to 1 instance per town, add more strings to handle higher limits"
             )
-        self.macro_name = "require_town_industry_count"
+        self.procedure_name = "require_town_industry_count"
         self.params = [self.industry_type_numeric_id, self.min_count, self.max_count]
 
 
 class IndustryLocationCheckTownMinPopulation(IndustryLocationCheck):
-    """ Require the nearest town to have a minimum population """
+    """Require the nearest town to have a minimum population"""
 
     def __init__(self, require_town_min_population):
         self.min_population = require_town_min_population
-        self.macro_name = "require_town_min_population"
+        self.procedure_name = "require_town_min_population"
         self.params = [self.min_population]
 
 
 class IndustryLocationCheckCluster(IndustryLocationCheck):
-    """ Require industries to locate in n clusters """
+    """Require industries to locate in n clusters"""
 
     def __init__(self, industry_type, require_cluster):
         # use the numeric_id so that we can do single-industry compiles without nml barfing on missing identifiers
@@ -1058,7 +1060,7 @@ class IndustryLocationCheckCluster(IndustryLocationCheck):
         self.max_distance = require_cluster[0]
         # cluster factor is a fudge, theoretically determines number of clusters per 256x256 section of map, but often irrelevant due to industry counts in any given combination of map/setting/economy/randomisation
         self.cluster_factor = require_cluster[1]
-        self.macro_name = "require_cluster"
+        self.procedure_name = "require_cluster"
         self.params = [
             self.industry_type_numeric_id,
             self.cluster_factor,
@@ -1067,26 +1069,26 @@ class IndustryLocationCheckCluster(IndustryLocationCheck):
 
 
 class IndustryLocationCheckIndustryMinDistance(IndustryLocationCheck):
-    """ Prevent locating near incompatible industry types """
+    """Prevent locating near incompatible industry types"""
 
     def __init__(self, industry_type, distance):
         self.industry_type = industry_type
         # use the numeric_id so that we can do single-industry compiles without nml barfing on missing identifiers
         self.industry_type_numeric_id = get_another_industry(industry_type).numeric_id
         self.distance = distance
-        self.macro_name = "require_min_distance_to_another_industry_type"
+        self.procedure_name = "require_min_distance_to_another_industry_type"
         self.params = [self.industry_type_numeric_id, self.distance]
 
 
 class IndustryLocationCheckIndustryMaxDistance(IndustryLocationCheck):
-    """ Check distance to another industry type """
+    """Check distance to another industry type"""
 
     def __init__(self, industry_type, distance, permissive_flag):
         # use the numeric_id so that we can do single-industry compiles without nml barfing on missing identifiers
         self.industry_type_numeric_id = get_another_industry(industry_type).numeric_id
         self.distance = distance
         self.permissive_flag = permissive_flag
-        self.macro_name = "require_max_distance_to_another_industry_type"
+        self.procedure_name = "require_max_distance_to_another_industry_type"
         self.params = [
             self.industry_type_numeric_id,
             self.distance,
@@ -1095,23 +1097,23 @@ class IndustryLocationCheckIndustryMaxDistance(IndustryLocationCheck):
 
 
 class IndustryLocationCheckCoastDistance(IndustryLocationCheck):
-    """ Maximum distance to coast (player can vary this with parameter) """
+    """Maximum distance to coast (player can vary this with parameter)"""
 
     def __init__(self):
-        self.macro_name = "disallow_too_far_from_coast"
+        self.procedure_name = "disallow_too_far_from_coast"
         self.params = []
 
 
 class IndustryLocationCheckGrainMillLayoutsByDate(IndustryLocationCheck):
-    """ Custom check for Grain mill, layouts are restricted by date; this is a one-off, but could be made generic if needed """
+    """Custom check for Grain mill, layouts are restricted by date; this is a one-off, but could be made generic if needed"""
 
     def __init__(self):
-        self.macro_name = "flour_mill_layouts_by_date"
+        self.procedure_name = "flour_mill_layouts_by_date"
         self.params = []
 
 
 class IndustryProperties(object):
-    """ Base class to hold properties corresponding to nml industry item properties """
+    """Base class to hold properties corresponding to nml industry item properties"""
 
     def __init__(self, **kwargs):
         # nml item properties, most of these should be provided as strings for insertion into nml.  See nml docs for meaning + acceptable values.
@@ -1164,11 +1166,16 @@ class IndustryProperties(object):
             raise Exception(
                 "Don't set conflicting_ind_types property; use the FIRS location checks for conflicting industry (these are more flexible)."
             )
-        self.basic_needs_and_luxuries_factor = kwargs.get("basic_needs_and_luxuries_factor", 0)
-        self.pollution_and_squalor_factor = kwargs.get("pollution_and_squalor_factor", 0)
+        self.basic_needs_and_luxuries_factor = kwargs.get(
+            "basic_needs_and_luxuries_factor", 0
+        )
+        self.pollution_and_squalor_factor = kwargs.get(
+            "pollution_and_squalor_factor", 0
+        )
+
 
 class Industry(object):
-    """ Base class for all types of industry """
+    """Base class for all types of industry"""
 
     def __init__(self, id, graphics_change_dates=[], **kwargs):
         self.id = id
@@ -1211,14 +1218,21 @@ class Industry(object):
         self.economy_variations[economy_id].enabled = True
         for kwarg_name, kwarg_value in kwargs.items():
             # special case for location checks, which must be appended to the dedicated IndustryLocationChecks instance holding the standard checks for the industry
-            if kwarg_name == 'locate_in_specific_regions':
+            if kwarg_name == "locate_in_specific_regions":
                 # !!! list of possible regions, or single item?
                 self.location_checks.economy_region_checks[economy_id] = kwarg_value
             else:
                 if hasattr(self.economy_variations[economy_id], kwarg_name):
-                    setattr(self.economy_variations[economy_id], kwarg_name, kwarg_value)
+                    setattr(
+                        self.economy_variations[economy_id], kwarg_name, kwarg_value
+                    )
                 else:
-                    raise NameError("unknown economy variation kwarg '" + kwarg_name + "' declared by " + self.id)
+                    raise NameError(
+                        "unknown economy variation kwarg '"
+                        + kwarg_name
+                        + "' declared by "
+                        + self.id
+                    )
 
     def add_tile(self, *args, **kwargs):
         new_tile = Tile(self.id, *args, **kwargs)
@@ -1541,7 +1555,7 @@ class Industry(object):
     @property
     def pollution_and_squalor_score(self):
         # handled via a method so that multipliers can be applied to adjust scoring, this might not be necessary
-        return self.get_property('pollution_and_squalor_factor', None)
+        return self.get_property("pollution_and_squalor_factor", None)
 
     def validate_map_colour(self, value):
         # we need to guard against map colours that have poor contrast with the green, dark green and purple maps
@@ -1628,9 +1642,7 @@ class Industry(object):
         # just a silly pass-through to perm_storage_mappings.get_perm_num
         return get_perm_num(identifier, industry_type=self.__class__.__name__)
 
-    def render_nml(
-        self, incompatible_industries
-    ):
+    def render_nml(self, incompatible_industries):
         # incompatible industries isn't known at init time, only at compile time, so it has to be passed in
         industry_template = templates[self.template]
         templated_nml = utils.unescape_chameleon_output(
@@ -1649,7 +1661,7 @@ class Industry(object):
 
 
 class IndustryInformative(Industry):
-    """ Industries used solely to explain advanced game mechanics to players via industry window text."""
+    """Industries used solely to explain advanced game mechanics to players via industry window text."""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1668,7 +1680,7 @@ class IndustryInformative(Industry):
 
 
 class IndustryPrimary(Industry):
-    """ Industries that produce cargo and (optionally) boost production if supplies are delivered """
+    """Industries that produce cargo and (optionally) boost production if supplies are delivered"""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1808,7 +1820,7 @@ class IndustryPrimaryPort(IndustryPrimary):
 
 
 class IndustryPrimaryNoSupplies(IndustryPrimary):
-    """ Industry that does not accept supplies and does not change production amounts during game """
+    """Industry that does not accept supplies and does not change production amounts during game"""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1817,7 +1829,7 @@ class IndustryPrimaryNoSupplies(IndustryPrimary):
 
 
 class IndustryTownProducerPopulationDependent(IndustryPrimary):
-    """ Industry that locates near towns, with production amount related to town population """
+    """Industry that locates near towns, with production amount related to town population"""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1860,7 +1872,7 @@ class IndustryTownProducerPopulationDependent(IndustryPrimary):
 
 
 class IndustrySecondary(Industry):
-    """ Processing industries: input cargo(s) -> output cargo(s) """
+    """Processing industries: input cargo(s) -> output cargo(s)"""
 
     def __init__(self, **kwargs):
         kwargs["life_type"] = "IND_LIFE_TYPE_PROCESSING"
@@ -1959,7 +1971,7 @@ class IndustrySecondary(Industry):
 
 
 class IndustryTertiary(Industry):
-    """ Industries that are typically black holes in or near towns. Consume cargo, may also produce town-type cargos (e.g. pax) at a constant rate unrelated to delivery."""
+    """Industries that are typically black holes in or near towns. Consume cargo, may also produce town-type cargos (e.g. pax) at a constant rate unrelated to delivery."""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

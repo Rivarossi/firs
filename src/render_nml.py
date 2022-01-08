@@ -97,7 +97,7 @@ def main():
         "construction_states",
         "fences",
         "ground_tiles",
-        "location_checks_industry",
+        "location_check_procedures_industry",
         "magic_trees",
         "perm_storage_mappings",
         "randomise_primary_production_on_build",
