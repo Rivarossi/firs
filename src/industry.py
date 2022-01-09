@@ -981,20 +981,21 @@ class IndustryLocationChecks(object):
                 result.append(IndustryLocationCheckIndustryMinDistance(industry.id, 16))
 
         for economy_id, region_list in self.economy_region_checks.items():
-            print(region_list)
             result.append(
                 IndustryLocationCheckEconomySpecificRegion(economy_id, region_list)
             )
-        if self.industry.id == "clay_pit":
-            print(result)
 
         return result
 
     def get_post_player_founding_checks_OR(self, incompatible_industries):
         # checks where satisyfing any of the conditions is enough
-        result = {}
+        result = []
 
-        result["keystone_industries"] = []
+        keystone_industries = {
+            "OR_group_name": "keystone_industries",
+            "location_checks": [],
+            "next_switch_name": "",
+        }
         if self.near_at_least_one_of_these_keystone_industries:
             for industry_type in self.near_at_least_one_of_these_keystone_industries[0]:
                 # if the ID of the keystone type is higher than the current industry, the current industry won't be built on smaller maps or low industry settings
@@ -1013,13 +1014,29 @@ class IndustryLocationChecks(object):
                     permissive_flag = 1
                 else:
                     permissive_flag = 0
-                result["keystone_industries"].append(
+                keystone_industries["location_checks"].append(
                     IndustryLocationCheckIndustryMaxDistance(
                         industry_type,
                         self.near_at_least_one_of_these_keystone_industries[1],
                         permissive_flag,
                     )
                 )
+        result.append(keystone_industries)
+
+        economy_specific_regions = {
+            "OR_group_name": "economy_specific_regions",
+            "location_checks": [],
+            "next_switch_name": "",
+        }
+        result.append(economy_specific_regions)
+
+        for counter, group in enumerate(result):
+            if counter == 0:
+                # last result (switches tree is reversed list order), so branch to AND checks
+                group["next_switch_name"] = "AND"
+            else:
+                group["next_switch_name"] = "OR_" + result[counter - 1]["OR_group_name"]
+
         return result
 
 
