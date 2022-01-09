@@ -1012,9 +1012,12 @@ class IndustryLocationChecks(object):
                 result.append(IndustryLocationCheckIndustryMinDistance(industry.id, 16))
 
         for economy_id, region_list in self.economy_region_checks.items():
+            print(region_list)
             result.append(
                 IndustryLocationCheckEconomySpecificRegion(economy_id, region_list)
             )
+        if self.industry.id == "clay_pit":
+            print(result)
 
         return result
 
@@ -1243,7 +1246,6 @@ class Industry(object):
         for kwarg_name, kwarg_value in kwargs.items():
             # special case for location checks, which must be appended to the dedicated IndustryLocationChecks instance holding the standard checks for the industry
             if kwarg_name == "locate_in_specific_regions":
-                # !!! list of possible regions, or single item?
                 self.location_checks.economy_region_checks[economy_id] = kwarg_value
             else:
                 if hasattr(self.economy_variations[economy_id], kwarg_name):
