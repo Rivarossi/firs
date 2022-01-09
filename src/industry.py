@@ -935,38 +935,6 @@ class IndustryLocationChecks(object):
 
         return result
 
-    def get_post_player_founding_checks_OR(self, incompatible_industries):
-        # checks where satisyfing any of the conditions is enough
-        result = {}
-
-        result['keystone_industries'] = []
-        if self.near_at_least_one_of_these_keystone_industries:
-            for industry_type in self.near_at_least_one_of_these_keystone_industries[0]:
-                # if the ID of the keystone type is higher than the current industry, the current industry won't be built on smaller maps or low industry settings
-                # this is because OpenTTD places first round of industries sequentially by ID (lowest first) at map gen time
-                if self.industry.numeric_id < (
-                    get_another_industry(industry_type).numeric_id
-                ):
-                    utils.echo_message(
-                        self.industry.id
-                        + " declares a keystone with higher ID ("
-                        + industry_type
-                        + ") - keystones must have lower ID than declaring industry, as industries are placed sequentially by ID (lowest first) when generating map.  Move "
-                        + self.industry.id
-                        + " to a higher ID (probably breaks savegames)."
-                    )
-                    permissive_flag = 1
-                else:
-                    permissive_flag = 0
-                result['keystone_industries'].append(
-                    IndustryLocationCheckIndustryMaxDistance(
-                        industry_type,
-                        self.near_at_least_one_of_these_keystone_industries[1],
-                        permissive_flag,
-                    )
-                )
-        return result
-
     def get_post_player_founding_checks_AND(self, incompatible_industries):
         # checks where all conditions must be satisfied
         result = []
@@ -1020,6 +988,38 @@ class IndustryLocationChecks(object):
         if self.industry.id == "clay_pit":
             print(result)
 
+        return result
+
+    def get_post_player_founding_checks_OR(self, incompatible_industries):
+        # checks where satisyfing any of the conditions is enough
+        result = {}
+
+        result["keystone_industries"] = []
+        if self.near_at_least_one_of_these_keystone_industries:
+            for industry_type in self.near_at_least_one_of_these_keystone_industries[0]:
+                # if the ID of the keystone type is higher than the current industry, the current industry won't be built on smaller maps or low industry settings
+                # this is because OpenTTD places first round of industries sequentially by ID (lowest first) at map gen time
+                if self.industry.numeric_id < (
+                    get_another_industry(industry_type).numeric_id
+                ):
+                    utils.echo_message(
+                        self.industry.id
+                        + " declares a keystone with higher ID ("
+                        + industry_type
+                        + ") - keystones must have lower ID than declaring industry, as industries are placed sequentially by ID (lowest first) when generating map.  Move "
+                        + self.industry.id
+                        + " to a higher ID (probably breaks savegames)."
+                    )
+                    permissive_flag = 1
+                else:
+                    permissive_flag = 0
+                result["keystone_industries"].append(
+                    IndustryLocationCheckIndustryMaxDistance(
+                        industry_type,
+                        self.near_at_least_one_of_these_keystone_industries[1],
+                        permissive_flag,
+                    )
+                )
         return result
 
 
@@ -1127,9 +1127,7 @@ class IndustryLocationCheckEconomySpecificRegion(IndustryLocationCheck):
         # fetch and store the economy object so we can get properties off it later
         self.economy = get_economy(economy_id)
         self.region_list = region_list
-        self.params = [
-            self.economy.numeric_id
-        ]
+        self.params = [self.economy.numeric_id]
 
 
 class IndustryLocationCheckGrainMillLayoutsByDate(IndustryLocationCheck):
