@@ -74,3 +74,11 @@ economy = Economy(
         ],
     },
 )
+
+economy.add_region(
+    "cabbage"
+)
+
+economy.add_region(
+    "potato"
+)
