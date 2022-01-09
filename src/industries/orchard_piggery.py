@@ -28,6 +28,11 @@ industry.enable_in_economy(
         ("AAPL", 11),
         ("LVST", 8),
     ],
+    locate_in_specific_regions=[
+        "far_far_west",
+        "moors_and_levels",
+        "valleys_and_marches",
+    ],
 )
 
 industry.add_tile(

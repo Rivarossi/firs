@@ -69,6 +69,9 @@ industry.enable_in_economy(
         ("PLAS", 3),
         ("CHIM", 2),
     ],
+    locate_in_specific_regions=[
+        "severnside",
+    ],
 )
 
 

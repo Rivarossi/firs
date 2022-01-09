@@ -47,6 +47,10 @@ industry.enable_in_economy(
     prod_cargo_types_with_output_ratios=[
         ("CMNT", 8),
     ],
+    locate_in_specific_regions=[
+        "moors_and_levels",
+        "severnside",
+    ],
 )
 
 industry.add_tile(

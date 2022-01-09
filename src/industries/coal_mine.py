@@ -20,6 +20,9 @@ industry.enable_in_economy(
 )
 industry.enable_in_economy(
     "MILD_MILD_WEST",
+    locate_in_specific_regions=[
+        "valleys_and_marches",
+    ],
 )
 industry.enable_in_economy(
     "STEELTOWN",

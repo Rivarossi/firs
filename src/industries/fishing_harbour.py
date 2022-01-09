@@ -42,6 +42,12 @@ industry.enable_in_economy(
 # ['IN_A_HOT_COUNTRY'].enabled = True
 industry.enable_in_economy(
     "MILD_MILD_WEST",
+    locate_in_specific_regions=[
+        "far_far_west",
+        "moors_and_levels",
+        "valleys_and_marches",
+        "fake_cumbria",
+    ],
 )
 
 industry.add_tile(

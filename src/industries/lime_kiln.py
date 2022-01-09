@@ -40,6 +40,10 @@ industry.enable_in_economy(
         ("LIME", 4),
         ("PETR", 4),
     ],
+    locate_in_specific_regions=[
+        "moors_and_levels",
+        "valleys_and_marches",
+    ],
 )
 
 industry.add_tile(

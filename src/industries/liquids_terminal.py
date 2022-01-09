@@ -38,6 +38,9 @@ industry.enable_in_economy(
         ("OIL_", 16),
         ("ACAC", 12),
     ],
+    locate_in_specific_regions=[
+        "severnside",
+    ],
 )
 
 industry.add_tile(

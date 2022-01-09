@@ -37,6 +37,11 @@ industry.enable_in_economy(
     prod_cargo_types_with_multipliers=[
         ("LIME", 16),
     ],
+    locate_in_specific_regions=[
+        "moors_and_levels",
+        "valleys_and_marches",
+        "fake_cumbria",
+    ],
 )
 
 # 2 tiles for this industry: pit outer tile cannot be on slopes; pit inner tiles and processor tiles can be

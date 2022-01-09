@@ -76,17 +76,38 @@ economy = Economy(
 )
 
 economy.add_region(
-    "cabbage",
-    min_x_percent = 66,
+    "far_far_west",
+    min_x_percent = 80,
     max_x_percent = 100,
     min_y_percent = 0,
     max_y_percent = 100,
 )
-
 economy.add_region(
-    "potato",
-    min_x_percent = 0,
-    max_x_percent = 33,
+    "moors_and_levels",
+    min_x_percent = 60,
+    max_x_percent = 85,
     min_y_percent = 0,
     max_y_percent = 100,
 )
+economy.add_region(
+    "severnside",
+    min_x_percent = 33,
+    max_x_percent = 66,
+    min_y_percent = 0,
+    max_y_percent = 100,
+)
+economy.add_region(
+    "valleys_and_marches",
+    min_x_percent = 15,
+    max_x_percent = 40,
+    min_y_percent = 0,
+    max_y_percent = 100,
+)
+economy.add_region(
+    "fake_cumbria",
+    min_x_percent = 0,
+    max_x_percent = 20,
+    min_y_percent = 0,
+    max_y_percent = 100,
+)
+

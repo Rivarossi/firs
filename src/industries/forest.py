@@ -28,6 +28,11 @@ industry.enable_in_economy(
 )
 industry.enable_in_economy(
     "MILD_MILD_WEST",
+    locate_in_specific_regions=[
+        "moors_and_levels",
+        "fake_cumbria",
+        "valleys_and_marches",
+    ],
 )
 
 industry.add_tile(

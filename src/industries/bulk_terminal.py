@@ -42,6 +42,9 @@ industry.enable_in_economy(
         ("SALT", 16),
         ("TIN_", 16),
     ],
+    locate_in_specific_regions=[
+        "severnside",
+    ],
 )
 
 industry.enable_in_economy(

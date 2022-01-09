@@ -25,6 +25,10 @@ industry.enable_in_economy(
     prod_cargo_types_with_output_ratios=[
         ("COKE", 6),
     ],
+    locate_in_specific_regions=[
+        "severnside",
+        "valleys_and_marches",
+    ],
 )
 industry.enable_in_economy(
     "STEELTOWN",

@@ -39,6 +39,10 @@ industry.enable_in_economy(
         ("WOOD", 2),
         ("PACH", 2),
     ],
+    locate_in_specific_regions=[
+        "fake_cumbria",
+        "severnside",
+    ],
 )
 
 industry.add_tile(

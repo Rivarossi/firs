@@ -49,6 +49,11 @@ industry.enable_in_economy(
         ("LVST", 13),
         ("FRUT", 5),
     ],
+    locate_in_specific_regions=[
+        "moors_and_levels",
+        "severnside",
+        "valleys_and_marches",
+    ],
 )
 
 

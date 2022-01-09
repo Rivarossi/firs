@@ -24,6 +24,11 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "MILD_MILD_WEST",
+    locate_in_specific_regions=[
+        "severnside",
+        "moors_and_levels",
+        "valleys_and_marches",
+    ],
 )
 
 industry.add_tile(
