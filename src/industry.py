@@ -937,8 +937,9 @@ class IndustryLocationChecks(object):
 
     def get_post_player_founding_checks_OR(self, incompatible_industries):
         # checks where satisyfing any of the conditions is enough
-        result = []
+        result = {}
 
+        result['keystone_industries'] = []
         if self.near_at_least_one_of_these_keystone_industries:
             for industry_type in self.near_at_least_one_of_these_keystone_industries[0]:
                 # if the ID of the keystone type is higher than the current industry, the current industry won't be built on smaller maps or low industry settings
@@ -957,7 +958,7 @@ class IndustryLocationChecks(object):
                     permissive_flag = 1
                 else:
                     permissive_flag = 0
-                result.append(
+                result['keystone_industries'].append(
                     IndustryLocationCheckIndustryMaxDistance(
                         industry_type,
                         self.near_at_least_one_of_these_keystone_industries[1],
