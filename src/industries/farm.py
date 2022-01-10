@@ -47,7 +47,6 @@ industry.enable_in_economy(
     prod_cargo_types_with_multipliers=[
         ("GRAI", 14),
         ("LVST", 13),
-        ("FRUT", 5),
     ],
     locate_in_specific_regions=[
         "moors_and_levels",
