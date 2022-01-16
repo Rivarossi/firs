@@ -75,6 +75,7 @@ economy = Economy(
     },
 )
 
+# some deliberate overlapping of regions for mixing at boundaries
 economy.add_region(
     "far_far_west",
     min_x_percent = 80,
@@ -91,8 +92,8 @@ economy.add_region(
 )
 economy.add_region(
     "severnside",
-    min_x_percent = 33,
-    max_x_percent = 66,
+    min_x_percent = 30,
+    max_x_percent = 70,
     min_y_percent = 0,
     max_y_percent = 100,
 )
