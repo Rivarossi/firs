@@ -42,7 +42,7 @@ industry.enable_in_economy(
         ("SALT", 16),
         ("TIN_", 16),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "severnside",
     ],
 )

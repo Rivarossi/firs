@@ -35,7 +35,7 @@ industry.enable_in_economy(
         ("LIME", 2),
     ],
     prob_in_game="0",  # do not build during gameplay
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "severnside",
     ],
 )

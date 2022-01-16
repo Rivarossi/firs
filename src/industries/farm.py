@@ -48,7 +48,7 @@ industry.enable_in_economy(
         ("GRAI", 14),
         ("LVST", 13),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "moors_and_levels",
         "severnside",
         "valleys_and_marches",

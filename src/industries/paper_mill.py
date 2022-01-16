@@ -39,7 +39,7 @@ industry.enable_in_economy(
         ("WOOD", 2),
         ("PACH", 2),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "fake_cumbria",
         "severnside",
     ],

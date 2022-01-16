@@ -20,7 +20,7 @@ industry = IndustrySecondary(
 
 industry.enable_in_economy(
     "MILD_MILD_WEST",
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "severnside",
     ],
 )

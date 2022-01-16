@@ -38,7 +38,7 @@ industry.enable_in_economy(
         ("OIL_", 16),
         ("ACAC", 12),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "severnside",
     ],
 )

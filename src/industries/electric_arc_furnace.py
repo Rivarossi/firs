@@ -35,7 +35,7 @@ industry.enable_in_economy(
         ("STWR", 3),
         ("SLAG", 2),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "severnside",
     ],
 )

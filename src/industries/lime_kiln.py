@@ -40,7 +40,7 @@ industry.enable_in_economy(
         ("LIME", 4),
         ("PETR", 4),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "moors_and_levels",
         "valleys_and_marches",
     ],

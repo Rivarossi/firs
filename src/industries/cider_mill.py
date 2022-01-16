@@ -33,7 +33,7 @@ industry.enable_in_economy(
         ("PACK", 2),
         ("ENUM", 1),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "far_far_west",
         "moors_and_levels",
         "valleys_and_marches",

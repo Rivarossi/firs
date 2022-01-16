@@ -47,7 +47,7 @@ industry.enable_in_economy(
     prod_cargo_types_with_output_ratios=[
         ("CMNT", 8),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "moors_and_levels",
         "severnside",
     ],

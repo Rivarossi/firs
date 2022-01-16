@@ -37,7 +37,7 @@ industry.enable_in_economy(
     prod_cargo_types_with_multipliers=[
         ("LIME", 16),
     ],
-    locate_in_specific_regions=[
+    locate_in_specific_biomes=[
         "moors_and_levels",
         "valleys_and_marches",
         "fake_cumbria",
