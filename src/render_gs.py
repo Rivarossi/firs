@@ -74,6 +74,7 @@ def main():
         "firs",
         "info",
         "main",
+        "temp_prototyping",
         "version",
     ]
     for nut_name in nuts:

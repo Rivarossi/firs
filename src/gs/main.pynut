@@ -44,6 +44,7 @@ Story <- SuperLib.Story;
 require("version.nut"); // get SELF_VERSION
 require("constants.nut");
 require("firs.nut");
+require("temp_prototyping.nut");
 //require("some_file.nut");
 //..
 
@@ -109,48 +110,10 @@ function MainClass::Start()
         Log.Info("--", Log.LVL_INFO);
     }
     */
-    local industry_types_list = GSIndustryTypeList();
-    local industry_type_ids = [];
-    local economy_matched = false;
-    foreach (industry_type, _ in industry_types_list) {
-        if (economy_matched == true) {
-            break;
-        }
-        local industry_fingerprint = "Accepts:"
-        local accepted_cargo_as_labels = [];
-        foreach (cargo, _ in GSIndustryType.GetAcceptedCargo(industry_type)) {
-            accepted_cargo_as_labels.push(GSCargo.GetCargoLabel(cargo));
-        }
-        accepted_cargo_as_labels.sort();
-        foreach (cargo in accepted_cargo_as_labels) {
-            industry_fingerprint = industry_fingerprint + " " + cargo;
-        }
-        industry_fingerprint = industry_fingerprint + " Produces:";
-        local produced_cargo_as_labels = [];
-        foreach (cargo, _ in GSIndustryType.GetProducedCargo(industry_type)) {
-            produced_cargo_as_labels.push(GSCargo.GetCargoLabel(cargo));
-        }
-        produced_cargo_as_labels.sort();
-        foreach (cargo in produced_cargo_as_labels) {
-            industry_fingerprint = industry_fingerprint  + " " + cargo;
-        }
-        foreach (economy, economy_fingerprint in firs.economy_fingerprints) {
-            if (economy_fingerprint == industry_fingerprint) {
-                Log.Info("matched!", Log.LVL_INFO);
-                Log.Info(economy, Log.LVL_INFO);
-                economy_matched = true;
-                break;
-            }
-        }
-    }
 
+    local economy_id = firs.get_economy_id();
 
-    /* proof of concept for setting var 47 bits */
-    local industry_list = GSIndustryList();
-    foreach (industry, _ in industry_list) {
-        local industry_flags = GSIndustry.GetControlFlags(industry);
-        GSIndustry.SetControlFlags(industry, industry_flags | GSIndustry.INDCTL_NO_CLOSURE | GSIndustry.INDCTL_NO_PRODUCTION_INCREASE | GSIndustry.INDCTL_NO_PRODUCTION_DECREASE)
-    }
+    foo();
 
 	// Game has now started and if it is a single player game,
 	// company 0 exist and is the human company.

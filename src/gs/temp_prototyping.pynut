@@ -1,0 +1,9 @@
+function foo()
+{
+    /* proof of concept for setting var 47 bits */
+    local industry_list = GSIndustryList();
+    foreach (industry, _ in industry_list) {
+        local industry_flags = GSIndustry.GetControlFlags(industry);
+        GSIndustry.SetControlFlags(industry, industry_flags | GSIndustry.INDCTL_NO_CLOSURE | GSIndustry.INDCTL_NO_PRODUCTION_INCREASE | GSIndustry.INDCTL_NO_PRODUCTION_DECREASE)
+    }
+}
