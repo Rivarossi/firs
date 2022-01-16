@@ -93,7 +93,6 @@ function MainClass::Start()
 	// execute our GS further in world generation)
 	GSController.Sleep(1);
 
-    Log.Info(GIT_VERSION, Log.LVL_INFO);
 
     /*
     foreach(industry_id, industry_properties in firs.industries) {
@@ -110,10 +109,6 @@ function MainClass::Start()
         Log.Info("--", Log.LVL_INFO);
     }
     */
-
-    local economy_id = firs.get_economy_id();
-
-    foo();
 
 	// Game has now started and if it is a single player game,
 	// company 0 exist and is the human company.
@@ -162,6 +157,14 @@ function MainClass::Init()
 	} else {
 		// construct goals etc.
 	}
+
+    Log.Info(GIT_VERSION, Log.LVL_INFO);
+
+    local economy_id = firs.get_economy_id();
+
+    set_var_47_bits();
+
+    set_town_text_test();
 
 	// Indicate that all data structures has been initialized/restored.
 	this._init_done = true;
