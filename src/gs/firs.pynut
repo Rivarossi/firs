@@ -51,7 +51,6 @@ firs.get_economy_id <- function()
             if (economy_fingerprint == industry_fingerprint) {
                 Log.Info("Fingerprinting: FIRS economy ID is " + economy, Log.LVL_INFO);
                 economy_matched = true;
-                break;
                 return economy;
             }
         }
