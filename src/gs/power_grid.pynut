@@ -1,0 +1,150 @@
+power_grid <- {}
+power_grid.power_station_empty_tiles <- [];
+
+function find_power_sources()
+/* find all the industries that generate power */
+{
+    // !! todo: find more than just power station
+    local power_plant_id = GSIndustryType.ResolveNewGRFID(firs.grfid, 0x42);
+    GSLog.Info("power_plant_id " + power_plant_id);
+
+    // clear the existing list
+    power_grid.power_station_empty_tiles.clear();
+
+    local industry_list = GSIndustryList();
+    foreach (industry, _ in industry_list) {
+        if (GSIndustry.GetIndustryType(industry) == power_plant_id) {
+            GSLog.Info("found " + GSIndustry.GetName(industry) + " at tile " + GSIndustry.GetLocation(industry));
+            local pylon_start_location = find_empty_tile_near_industry(industry);
+            if (pylon_start_location != null)
+            {
+                power_grid.power_station_empty_tiles.append(pylon_start_location);
+                local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, 0x51);
+                GSObjectType.BuildObject(pylon_object_id, 0, pylon_start_location);
+            }
+        }
+    }
+    create_lineman_graph();
+}
+
+function find_empty_tile_near_industry(industry)
+{
+	// Create spiral walker
+	local SPIRAL_WALKER = SpiralWalker();
+	SPIRAL_WALKER.Start(GSIndustry.GetLocation(industry));
+
+	// Create try counter
+	local TRIES = 0;
+	// if no tile found within this distance, don't bother
+	local MAX_TRIES = 16 * 16;
+
+	while(TRIES < MAX_TRIES)
+	{
+		// Inc tries
+		TRIES++;
+
+		// Walk one tile
+		SPIRAL_WALKER.Walk();
+		// Get tile
+		local CURRENT_TILE = SPIRAL_WALKER.GetTile();
+	    if (GSTile.IsBuildable(CURRENT_TILE) && (TRIES > 38))
+	    {
+	        return CURRENT_TILE;
+	    }
+	}
+	// no buildable tile found
+	return null;
+}
+
+function lineman_sort_by_distance(a, b)
+{
+    if (a[0] > b[0]) return 1;
+    if (a[0] < b[0]) return -1;
+    return 0;
+}
+
+function create_lineman_graph()
+{
+    power_grid.all_nodes <- clone power_grid.power_station_empty_tiles;
+    power_grid.unconnected_nodes <- clone power_grid.all_nodes;
+    power_grid.links <- [];
+    while (power_grid.unconnected_nodes.len() > 0)
+    {
+        local current_node = power_grid.unconnected_nodes.pop();
+        local candidate_nodes_with_edge_distances = [];
+        foreach (candidate_dest_node in power_grid.all_nodes)
+        {
+            if (candidate_dest_node != current_node)
+            {
+                candidate_nodes_with_edge_distances.append([GSTile.GetDistanceManhattanToTile(current_node, candidate_dest_node), candidate_dest_node]);
+            }
+        }
+        candidate_nodes_with_edge_distances.sort(lineman_sort_by_distance);
+        power_grid.links.append([current_node, candidate_nodes_with_edge_distances[0][1]]);
+    }
+    GSLog.Info("=========");
+    foreach (link in power_grid.links)
+    {
+        GSLog.Info(link[0] + ", " + link[1]);
+    }
+    GSLog.Info("=========");
+}
+
+function pathfinder_test()
+{
+    if (power_grid.links.len() == 0)
+    {
+        GSLog.Info("Lineman: Power grid complete, nothing to do");
+        return;
+    }
+    local current_link = power_grid.links.pop();
+    local start_node = current_link[0];
+    local dest_node = current_link[1];
+
+    /* Print the names of the towns we'll try to connect. */
+    GSLog.Info("Going to connect " + start_node + " to " + dest_node);
+
+    /* Tell OpenTTD we want to build normal road (no tram tracks). */
+    GSRoad.SetCurrentRoadType(GSRoad.ROADTYPE_ROAD);
+
+    /* Create an instance of the pathfinder. */
+    local pathfinder = Road();
+
+    /* Set the cost for everything lowish */
+    pathfinder.cost.tile = 100;
+    pathfinder.cost.turn = 100;
+    pathfinder.cost.no_existing_road = 0;
+    pathfinder.cost.slope = 0;
+    pathfinder.cost.bridge_per_tile = 1000;
+    pathfinder.cost.tunnel_per_tile = 1000;
+    pathfinder.cost.coast = 0;
+    pathfinder.cost.max_bridge_length = 4096;
+    pathfinder.cost.max_tunnel_length = 4096;
+
+    /* Give the source and goal tiles to the pathfinder. */
+    pathfinder.InitializePath([start_node], [dest_node]);
+
+    local path = false;
+    while (path == false) {
+        path = pathfinder.FindPath(10000);
+        GSController.Sleep(1);
+    }
+    Log.Info("pathfinder result " + path, Log.LVL_INFO);
+
+    local pylon_gap_counter = 0;
+    while (path != null && path != false) {
+        local par = path.GetParent();
+        if (par != null) {
+            local last_node = path.GetTile();
+            pylon_gap_counter = pylon_gap_counter + 1;
+            if (pylon_gap_counter == 10) {
+                local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, 0x51);
+                // GSLog.Info("pylon_object_id " + pylon_object_id);
+                GSObjectType.BuildObject(pylon_object_id, 0, last_node);
+                pylon_gap_counter = 0;
+            }
+            // GSLog.Info(last_node);
+        }
+        path = par;
+    }
+}

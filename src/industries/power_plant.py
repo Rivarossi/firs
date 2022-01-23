@@ -18,8 +18,18 @@ industry = IndustryTertiary(
 
 
 industry.enable_in_economy(
+    "BASIC_TEMPERATE",
+    accept_cargo_types=["COAL"],
+)
+
+industry.enable_in_economy(
     "BASIC_ARCTIC",
     accept_cargo_types=["PEAT"],
+)
+
+industry.enable_in_economy(
+    "MILD_MILD_WEST",
+    accept_cargo_types=["COAL"],
 )
 
 industry.add_tile(
