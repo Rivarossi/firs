@@ -56,6 +56,36 @@ function find_empty_tile_near_industry(industry)
 	return null;
 }
 
+function lineman_find_empty_tile_for_pylon(location_tile_index)
+{
+	// Create spiral walker
+	local SPIRAL_WALKER = SpiralWalker();
+	SPIRAL_WALKER.Start(location_tile_index);
+
+	// Create try counter
+	local TRIES = 0;
+	// if no tile found within this distance, don't bother
+	local MAX_TRIES = 5 * 5;
+
+	while(TRIES < MAX_TRIES)
+	{
+		// Inc tries
+		TRIES++;
+
+		// Walk one tile
+		SPIRAL_WALKER.Walk();
+		// Get tile
+		local CURRENT_TILE = SPIRAL_WALKER.GetTile();
+	    if (GSTile.IsBuildable(CURRENT_TILE))
+	    {
+	        return CURRENT_TILE;
+	    }
+	}
+	// no buildable tile found
+	return null;
+}
+
+
 function lineman_sort_by_distance(a, b)
 {
     if (a[0] > b[0]) return 1;
@@ -90,6 +120,14 @@ function create_lineman_graph()
     GSLog.Info("=========");
 }
 
+function lineman_build_pylon(location)
+{
+    local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, 0x51);
+    // GSLog.Info("pylon_object_id " + pylon_object_id);
+    GSObjectType.BuildObject(pylon_object_id, 0, location);
+}
+
+
 function pathfinder_test()
 {
     if (power_grid.links.len() == 0)
@@ -104,47 +142,30 @@ function pathfinder_test()
     /* Print the names of the towns we'll try to connect. */
     GSLog.Info("Going to connect " + start_node + " to " + dest_node);
 
-    /* Tell OpenTTD we want to build normal road (no tram tracks). */
-    GSRoad.SetCurrentRoadType(GSRoad.ROADTYPE_ROAD);
+    GSLog.Info("Manhattan distance " + GSTile.GetDistanceManhattanToTile(start_node, dest_node));
+    local num_pylons_to_build = GSTile.GetDistanceManhattanToTile(start_node, dest_node) / 10;
+    GSLog.Info("num_pylons_to_build " + num_pylons_to_build);
 
-    /* Create an instance of the pathfinder. */
-    local pathfinder = Road();
+    local start_x = GSMap.GetTileX(start_node);
+    local delta_x = (start_x - GSMap.GetTileX(dest_node)) / num_pylons_to_build;
+    local start_y = GSMap.GetTileY(start_node);
+    local delta_y = (start_y - GSMap.GetTileY(dest_node)) / num_pylons_to_build;
 
-    /* Set the cost for everything lowish */
-    pathfinder.cost.tile = 100;
-    pathfinder.cost.turn = 100;
-    pathfinder.cost.no_existing_road = 0;
-    pathfinder.cost.slope = 0;
-    pathfinder.cost.bridge_per_tile = 1000;
-    pathfinder.cost.tunnel_per_tile = 1000;
-    pathfinder.cost.coast = 0;
-    pathfinder.cost.max_bridge_length = 4096;
-    pathfinder.cost.max_tunnel_length = 4096;
-
-    /* Give the source and goal tiles to the pathfinder. */
-    pathfinder.InitializePath([start_node], [dest_node]);
-
-    local path = false;
-    while (path == false) {
-        path = pathfinder.FindPath(10000);
-        GSController.Sleep(1);
-    }
-    Log.Info("pathfinder result " + path, Log.LVL_INFO);
-
-    local pylon_gap_counter = 0;
-    while (path != null && path != false) {
-        local par = path.GetParent();
-        if (par != null) {
-            local last_node = path.GetTile();
-            pylon_gap_counter = pylon_gap_counter + 1;
-            if (pylon_gap_counter == 10) {
-                local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, 0x51);
-                // GSLog.Info("pylon_object_id " + pylon_object_id);
-                GSObjectType.BuildObject(pylon_object_id, 0, last_node);
-                pylon_gap_counter = 0;
-            }
-            // GSLog.Info(last_node);
+    local num_pylons_built = 0;
+    while (num_pylons_built < num_pylons_to_build)
+    {
+        num_pylons_built = num_pylons_built + 1;
+        local next_loc_x = start_x - (num_pylons_built * delta_x);
+        local next_loc_y = start_y - (num_pylons_built * delta_y);
+        local next_loc_tile_index = GSMap.GetTileIndex(next_loc_x, next_loc_y)
+        GSLog.Info("next_loc_x: " + next_loc_x);
+        GSLog.Info("next_loc_y: " + next_loc_y);
+        GSLog.Info("tile index for next loc: " + next_loc_tile_index);
+        local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(next_loc_tile_index);
+        if (nearest_buildable_tile_to_next_loc != null)
+        {
+            GSLog.Info("building a pylon...");
+            lineman_build_pylon(nearest_buildable_tile_to_next_loc);
         }
-        path = par;
     }
 }
