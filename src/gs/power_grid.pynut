@@ -24,7 +24,7 @@ function find_power_sources()
             }
         }
     }
-    create_lineman_graph();
+    create_lineman_graph(power_grid.power_station_empty_tiles);
 }
 
 function find_empty_tile_near_industry(industry)
@@ -65,7 +65,7 @@ function lineman_find_empty_tile_for_pylon(location_tile_index)
 	// Create try counter
 	local TRIES = 0;
 	// if no tile found within this distance, don't bother
-	local MAX_TRIES = 5 * 5;
+	local MAX_TRIES = 8 * 8;
 
 	while(TRIES < MAX_TRIES)
 	{
@@ -85,7 +85,6 @@ function lineman_find_empty_tile_for_pylon(location_tile_index)
 	return null;
 }
 
-
 function lineman_sort_by_distance(a, b)
 {
     if (a[0] > b[0]) return 1;
@@ -93,31 +92,47 @@ function lineman_sort_by_distance(a, b)
     return 0;
 }
 
-function create_lineman_graph()
+function create_lineman_graph(nodes)
 {
-    power_grid.all_nodes <- clone power_grid.power_station_empty_tiles;
-    power_grid.unconnected_nodes <- clone power_grid.all_nodes;
-    power_grid.links <- [];
-    while (power_grid.unconnected_nodes.len() > 0)
-    {
-        local current_node = power_grid.unconnected_nodes.pop();
-        local candidate_nodes_with_edge_distances = [];
-        foreach (candidate_dest_node in power_grid.all_nodes)
-        {
-            if (candidate_dest_node != current_node)
-            {
-                candidate_nodes_with_edge_distances.append([GSTile.GetDistanceManhattanToTile(current_node, candidate_dest_node), candidate_dest_node]);
+    //power_grid.all_nodes <- clone power_grid.power_station_empty_tiles;
+    //power_grid.unconnected_nodes <- clone power_grid.all_nodes;
+    // power_grid.ind <- [];
+
+    // Prim minimum spanning tree implementation by _dp_
+    local ind = [];
+    local cost = [];
+    local prev = [];
+    local vis = []; // vis - visited nodes, i.e. added to mst
+
+    GSLog.Info("Nodes:");
+    foreach (node in nodes) {
+        GSLog.Info("  " + node);
+        ind.append(node);
+        cost.append(0xffffffff);
+        prev.append(0);
+        vis.append(false);
+    }
+
+    local n = ind.len();
+    for (local j = 0; j < n; j++) {
+        local mi = 0; // mi - i with min cost, i.e. node that is currently being added
+        for (local i = 1; i < n; i++) {
+            if (!vis[i] && cost[i] < cost[mi])
+                mi = i
+        }
+        vis[mi] = true;
+        for (local i = 1; i < n; i++) {
+            if (vis[i]) continue;
+            local d = GSTile.GetDistanceManhattanToTile(ind[mi], ind[i]);
+            if (d < cost[i]) {
+                cost[i] = d;
+                prev[i] = mi;
             }
         }
-        candidate_nodes_with_edge_distances.sort(lineman_sort_by_distance);
-        power_grid.links.append([current_node, candidate_nodes_with_edge_distances[0][1]]);
     }
-    GSLog.Info("=========");
-    foreach (link in power_grid.links)
-    {
-        GSLog.Info(link[0] + ", " + link[1]);
-    }
-    GSLog.Info("=========");
+    power_grid.ind <- ind;
+    power_grid.prev <- prev;
+    power_grid.connected <- 0;
 }
 
 function lineman_build_pylon(location)
@@ -130,11 +145,37 @@ function lineman_build_pylon(location)
 
 function pathfinder_test()
 {
-    if (power_grid.links.len() == 0)
+    if (power_grid.connected >= power_grid.ind.len())
     {
         GSLog.Info("Lineman: Power grid complete, nothing to do");
         return;
     }
+
+    GSLog.Info("Connections:");
+    for (local i = 1; i < power_grid.ind.len(); i++) {
+        GSLog.Info("  " + power_grid.ind[i] + " " + power_grid.ind[power_grid.prev[i]]);
+        local x = GSMap.GetTileX(power_grid.ind[i]);
+        local y = GSMap.GetTileY(power_grid.ind[i]);
+        local px = GSMap.GetTileX(power_grid.ind[power_grid.prev[i]]);
+        local py = GSMap.GetTileY(power_grid.ind[power_grid.prev[i]]);
+        local dx = px - x;
+        local dy = py - y;
+        // local d = math.max((math.abs(dx) + math.abs(dy)) / 4, 1);
+        local d = ((dx > 0 ? dx : -dx) + (dy > 0 ? dy : -dy)) / 10;
+        if (d <= 0) d = 1;
+        for (local j = 0; j <= d; j++) {
+            local xy = GSMap.GetTileIndex(x + dx * j / d, y + dy * j / d);
+            local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(xy);
+            if (nearest_buildable_tile_to_next_loc != null)
+            {
+                GSLog.Info("building a pylon...");
+                lineman_build_pylon(nearest_buildable_tile_to_next_loc);
+            }
+        }
+        power_grid.connected = power_grid.connected + 2;
+    }
+
+    <!--!
     local current_link = power_grid.links.pop();
     local start_node = current_link[0];
     local dest_node = current_link[1];
@@ -168,4 +209,5 @@ function pathfinder_test()
             lineman_build_pylon(nearest_buildable_tile_to_next_loc);
         }
     }
+    -->
 }
