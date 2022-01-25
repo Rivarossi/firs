@@ -1,5 +1,6 @@
 power_grid <- {}
 power_grid.power_station_empty_tiles <- [];
+power_grid.pylon_gap <- 1;
 
 function find_power_sources()
 /* find all the industries that generate power */
@@ -137,11 +138,12 @@ function create_lineman_graph(nodes)
 
 function lineman_build_pylon(location, current_direction)
 {
-    local pylons = [0x51, 0x50, 0x87, 0x4a, 0x51, 0x50, 0x87, 0x4a];
+    local pylons = [0x87, 0x51];
+    local pylon_views = [1, 1, 0, 0];
     //local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, pylons[current_direction]);
-    local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, pylons[0]);
+    local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, pylons[current_direction % 2]);
     // GSLog.Info("pylon_object_id " + pylon_object_id);
-    GSObjectType.BuildObject(pylon_object_id, 0, location);
+    GSObjectType.BuildObject(pylon_object_id, pylon_views[current_direction % 4], location);
 }
 
 function math_abs(_value)
@@ -176,10 +178,10 @@ function get_direction_options(current_x, current_y, dest_x, dest_y)
     GSLog.Info("delta_x " + delta_x);
     GSLog.Info("delta_y " + delta_y);
 
-    local move_pos_x = delta_x <= -5;
-    local move_neg_x = delta_x > 5;
-    local move_pos_y = delta_y <= -5;
-    local move_neg_y = delta_y > 5;
+    local move_pos_x = delta_x <= -power_grid.pylon_gap;
+    local move_neg_x = delta_x > power_grid.pylon_gap;
+    local move_pos_y = delta_y <= -power_grid.pylon_gap;
+    local move_neg_y = delta_y > power_grid.pylon_gap;
 
     if (move_pos_x) // need to go +ve x
     {
@@ -222,7 +224,7 @@ function get_direction_vector(direction_options, direction_leg_counter, previous
 // has to be a function returning, because squirrel vars aren't reusable outside a conditional block, so can't write inline if/else for this
 // 'the lolz'
 {
-    if ((direction_leg_counter == 5) || (previous_direction == null))
+    if ((direction_leg_counter == power_grid.pylon_gap) || (previous_direction == null))
     {
         return direction_options[GSBase.RandRange(direction_options.len())];
     }
@@ -268,7 +270,7 @@ function pathfinder_test()
         local previous_direction = null;
 
 
-        while ((math_abs(current_x - dest_x) > 5) || (math_abs(current_y - dest_y) > 5)) {
+        while ((math_abs(current_x - dest_x) > power_grid.pylon_gap) || (math_abs(current_y - dest_y) > power_grid.pylon_gap)) {
             local direction_options = get_direction_options(current_x, current_y, dest_x, dest_y);
             local current_direction = get_direction_vector(direction_options, direction_leg_counter, previous_direction);
             local direction_vector = direction_vectors[current_direction];
@@ -278,8 +280,9 @@ function pathfinder_test()
 
             previous_direction = current_direction;
 
-            if (direction_leg_counter == 5)
+            if (direction_leg_counter == power_grid.pylon_gap)
             {
+                lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
                 direction_leg_counter = 0;
             }
             else
@@ -287,7 +290,7 @@ function pathfinder_test()
                 direction_leg_counter = direction_leg_counter + 1;
             }
 
-            lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
+            //lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
             <!--!
             local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(GSMap.GetTileIndex(current_x, current_y));
             if (nearest_buildable_tile_to_next_loc != null)
