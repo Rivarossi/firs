@@ -65,7 +65,7 @@ function lineman_find_empty_tile_for_pylon(location_tile_index)
 	// Create try counter
 	local TRIES = 0;
 	// if no tile found within this distance, don't bother
-	local MAX_TRIES = 8 * 8;
+	local MAX_TRIES = 3 * 3;
 
 	while(TRIES < MAX_TRIES)
 	{
@@ -132,34 +132,174 @@ function create_lineman_graph(nodes)
     }
     power_grid.ind <- ind;
     power_grid.prev <- prev;
-    power_grid.connected <- 0;
+    power_grid.complete <- false;
 }
 
-function lineman_build_pylon(location)
+function lineman_build_pylon(location, current_direction)
 {
-    local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, 0x51);
+    local pylons = [0x51, 0x50, 0x87, 0x4a, 0x51, 0x50, 0x87, 0x4a];
+    //local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, pylons[current_direction]);
+    local pylon_object_id = GSObjectType.ResolveNewGRFID(0x47477015, pylons[0]);
     // GSLog.Info("pylon_object_id " + pylon_object_id);
     GSObjectType.BuildObject(pylon_object_id, 0, location);
 }
 
+function math_abs(_value)
+// GS seems to miss the squirrel math module
+{
+    return (_value > 0 ? _value : -_value);
+}
+
+function array_has_item(_array, _value)
+// GS misses squirrel array.find()
+// just returns simple bool, doesn't find the position
+{
+    foreach (_item in _array)
+    {
+        if (_item == _value)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+function get_direction_options(current_x, current_y, dest_x, dest_y)
+{
+    // 0 = compass north (not TTD grid north curently?), then clockwise 45 degree increments
+    //local all_directions = [0, 1, 2, 3, 4, 5, 6, 7];
+    local result = [];
+
+    local delta_x = current_x - dest_x;
+    local delta_y = current_y - dest_y;
+
+    GSLog.Info("delta_x " + delta_x);
+    GSLog.Info("delta_y " + delta_y);
+
+    local move_pos_x = delta_x <= -5;
+    local move_neg_x = delta_x > 5;
+    local move_pos_y = delta_y <= -5;
+    local move_neg_y = delta_y > 5;
+
+    if (move_pos_x) // need to go +ve x
+    {
+        result.append(5);
+    }
+    if (move_neg_x) // need to go -ve x
+    {
+        result.append(1);
+    }
+    if (move_pos_y) // need to go +ve y
+    {
+        result.append(3);
+    }
+    if (move_neg_y) // need to go -ve y
+    {
+        result.append(7);
+    }
+
+    if (move_pos_x && move_pos_y) // need to go +ve x and +ve y (south)
+    {
+        result.append(4);
+    }
+    if (move_neg_x && move_pos_y) // need to go -ve x and +ve y (east)
+    {
+        result.append(2);
+    }
+    if (move_pos_x && move_neg_y) // need to go +ve x and -ve y (west)
+    {
+        result.append(6);
+    }
+    if (move_neg_x && move_neg_y) // need to go -ve x and -ve y (north)
+    {
+        result.append(0);
+    }
+
+    return result;
+}
+
+function get_direction_vector(direction_options, direction_leg_counter, previous_direction)
+// has to be a function returning, because squirrel vars aren't reusable outside a conditional block, so can't write inline if/else for this
+// 'the lolz'
+{
+    if ((direction_leg_counter == 5) || (previous_direction == null))
+    {
+        return direction_options[GSBase.RandRange(direction_options.len())];
+    }
+    else
+    {
+        return previous_direction;
+    }
+}
 
 function pathfinder_test()
 {
-    if (power_grid.connected >= power_grid.ind.len())
+    if (power_grid.complete)
     {
         GSLog.Info("Lineman: Power grid complete, nothing to do");
         return;
     }
 
+    // 8 directions, indexed as 0..7.
+    // on the map: +ve x goes towards SW (direction 5), +ve y goes towards SE (direction 3)
+    local direction_vectors = [
+        [-1, -1], // 0: North
+        [-1,  0], // 1: NE
+        [-1,  1], // 2: East
+        [ 0,  1], // 3: SE
+        [ 1,  1], // 4: South
+        [ 1,  0], // 5: SW
+        [ 1, -1], // 6: West
+        [ 0, -1], // 7: NW
+    ];
+
     GSLog.Info("Connections:");
     for (local i = 1; i < power_grid.ind.len(); i++) {
+        GSLog.Info("=========");
         GSLog.Info("  " + power_grid.ind[i] + " " + power_grid.ind[power_grid.prev[i]]);
-        local x = GSMap.GetTileX(power_grid.ind[i]);
-        local y = GSMap.GetTileY(power_grid.ind[i]);
-        local px = GSMap.GetTileX(power_grid.ind[power_grid.prev[i]]);
-        local py = GSMap.GetTileY(power_grid.ind[power_grid.prev[i]]);
-        local dx = px - x;
-        local dy = py - y;
+        local start_x = GSMap.GetTileX(power_grid.ind[i]);
+        local start_y = GSMap.GetTileY(power_grid.ind[i]);
+        local dest_x = GSMap.GetTileX(power_grid.ind[power_grid.prev[i]]);
+        local dest_y = GSMap.GetTileY(power_grid.ind[power_grid.prev[i]]);
+        local current_x = start_x;
+        local current_y = start_y;
+
+        local direction_leg_counter = 0;
+        local previous_direction = null;
+
+
+        while ((math_abs(current_x - dest_x) > 5) || (math_abs(current_y - dest_y) > 5)) {
+            local direction_options = get_direction_options(current_x, current_y, dest_x, dest_y);
+            local current_direction = get_direction_vector(direction_options, direction_leg_counter, previous_direction);
+            local direction_vector = direction_vectors[current_direction];
+
+            current_x = current_x + (direction_vector[0] * 1);
+            current_y = current_y + (direction_vector[1] * 1);
+
+            previous_direction = current_direction;
+
+            if (direction_leg_counter == 5)
+            {
+                direction_leg_counter = 0;
+            }
+            else
+            {
+                direction_leg_counter = direction_leg_counter + 1;
+            }
+
+            lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
+            <!--!
+            local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(GSMap.GetTileIndex(current_x, current_y));
+            if (nearest_buildable_tile_to_next_loc != null)
+            {
+                //GSLog.Info("building a pylon...");
+                lineman_build_pylon(nearest_buildable_tile_to_next_loc, current_direction);
+            }
+            -->
+        }
+
+
+        <!--!
         // local d = math.max((math.abs(dx) + math.abs(dy)) / 4, 1);
         local d = ((dx > 0 ? dx : -dx) + (dy > 0 ? dy : -dy)) / 10;
         if (d <= 0) d = 1;
@@ -168,12 +308,14 @@ function pathfinder_test()
             local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(xy);
             if (nearest_buildable_tile_to_next_loc != null)
             {
-                GSLog.Info("building a pylon...");
+                //GSLog.Info("building a pylon...");
                 lineman_build_pylon(nearest_buildable_tile_to_next_loc);
             }
         }
-        power_grid.connected = power_grid.connected + 2;
+        -->
+        power_grid.complete <- true;
     }
+    GSLog.Info("power_grid.complete " + power_grid.complete);
 
     <!--!
     local current_link = power_grid.links.pop();
