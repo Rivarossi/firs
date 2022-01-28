@@ -32,11 +32,11 @@ Story <- SuperLib.Story;
 // http://dev.openttdcoop.org/projects/superlib/repository
 
 /**  Import Road Pathfinder as Road **/
-Road <- import("Pathfinder.Road", "", 4);
+// Road <- import("Pathfinder.Road", "", 4);
 
 /**  Import Minchinweb for GameScript **/
-import("util.MinchinWeb", "MinchinWeb", 6);
-SpiralWalker <- MinchinWeb.SpiralWalker;
+// import("util.MinchinWeb", "MinchinWeb", 6);
+// SpiralWalker <- MinchinWeb.SpiralWalker;
 
 /** Import other libs **/
 
@@ -50,11 +50,14 @@ SpiralWalker <- MinchinWeb.SpiralWalker;
 require("version.nut"); // get SELF_VERSION
 require("constants.nut");
 require("firs.nut");
-require("power_grid.nut");
+require("pylons.nut");
+// require("power_grid.nut");
 require("temp_prototyping.nut");
+
 //require("some_file.nut");
 //..
 
+PowerGrid <- PowerGrid();
 
 class MainClass extends GSController
 {
@@ -128,8 +131,6 @@ function MainClass::Start()
 		// Handle incoming messages from OpenTTD
 		this.HandleEvents();
 
-        pathfinder_test();
-
 		// Reached new year/month?
 		local current_date = GSDate.GetCurrentDate();
 		if (last_loop_date != null) {
@@ -171,11 +172,17 @@ function MainClass::Init()
 
     local economy_id = firs.get_economy_id();
 
+    PowerGrid.build_
+    (
+        GSObjectType.ResolveNewGRFID(0x47477015, 0x51),
+        GSIndustryType.ResolveNewGRFID(firs.grfid, 0x42) // to-do: convert to list of industries
+    );
+
     // set_var_47_bits_test();
 
     set_town_text_test();
 
-    find_power_sources();
+    //find_power_sources();
 
 	// Indicate that all data structures has been initialized/restored.
 	this._init_done = true;

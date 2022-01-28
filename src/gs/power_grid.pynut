@@ -1,6 +1,6 @@
 power_grid <- {}
 power_grid.power_station_empty_tiles <- [];
-power_grid.pylon_gap <- 1;
+power_grid.pylon_gap <- 4;
 
 function find_power_sources()
 /* find all the industries that generate power */
@@ -77,7 +77,7 @@ function lineman_find_empty_tile_for_pylon(location_tile_index)
 		SPIRAL_WALKER.Walk();
 		// Get tile
 		local CURRENT_TILE = SPIRAL_WALKER.GetTile();
-	    if (GSTile.IsBuildable(CURRENT_TILE))
+	    if (GSTile.IsBuildable(CURRENT_TILE) && (!GSTile.IsCoastTile(CURRENT_TILE)))
 	    {
 	        return CURRENT_TILE;
 	    }
@@ -282,7 +282,13 @@ function pathfinder_test()
 
             if (direction_leg_counter == power_grid.pylon_gap)
             {
-                lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
+                //lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
+                local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(GSMap.GetTileIndex(current_x, current_y));
+                if (nearest_buildable_tile_to_next_loc != null)
+                {
+                    //GSLog.Info("building a pylon...");
+                    lineman_build_pylon(nearest_buildable_tile_to_next_loc, current_direction);
+                }
                 direction_leg_counter = 0;
             }
             else
@@ -290,15 +296,7 @@ function pathfinder_test()
                 direction_leg_counter = direction_leg_counter + 1;
             }
 
-            //lineman_build_pylon(GSMap.GetTileIndex(current_x, current_y), current_direction);
-            <!--!
-            local nearest_buildable_tile_to_next_loc = lineman_find_empty_tile_for_pylon(GSMap.GetTileIndex(current_x, current_y));
-            if (nearest_buildable_tile_to_next_loc != null)
-            {
-                //GSLog.Info("building a pylon...");
-                lineman_build_pylon(nearest_buildable_tile_to_next_loc, current_direction);
-            }
-            -->
+
         }
 
 

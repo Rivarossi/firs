@@ -78,7 +78,7 @@ def main():
         "firs",
         "info",
         "main",
-        "power_grid",
+        "pylons",
         "temp_prototyping",
         "version",
     ]
